@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import { MdArrowOutward } from "react-icons/md";
 import { CardSpotlight } from "./ui/card-spotlight";
+import { motion } from "framer-motion";
 
 export function Services() {
   return (
@@ -34,8 +36,22 @@ export function Services() {
                 index === 0 || index === 3 || index === 4
                   ? "w-[59%]"
                   : "w-[39%]"
-              } relative bg-gradient-to-t from-[#111] to-[#1a1a1a] p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 group overflow-hidden min-h-96`}
+              } relative bg-gradient-to-t from-[#111] serviceBorder to-[#1a1a1a] p-6 shadow-md hover:shadow-lg transition-shadow duration-300 group overflow-hidden min-h-96`}
             >
+              {/* Gradient Border Animation */}
+              {/* <motion.div
+                initial={{ backgroundPosition: "0% 0%" }}
+                animate={{ backgroundPosition: "200% 200%" }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="absolute inset-0 rounded-3xl border-[2px] border-transparent bg-gradient-to-r from-[#5B3CCC] to-[#000000] bg-clip-border"
+                style={{
+                  backgroundSize: "400% 400%",
+                }}
+              ></motion.div> */}
               {/* Background */}
               <div
                 className={item.className}

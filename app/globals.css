@@ -24,6 +24,39 @@
 .font-satoshi-bold {
   font-family: "satoshi-bold";
 }
+@keyframes moveBorder {
+  0% {
+    border-image-source: linear-gradient(90deg, #5b3ccc, #000000);
+  }
+  25% {
+    border-image-source: linear-gradient(180deg, #5b3ccc, #000000);
+  }
+  50% {
+    border-image-source: linear-gradient(270deg, #5b3ccc, #000000);
+  }
+  75% {
+    border-image-source: linear-gradient(360deg, #5b3ccc, #000000);
+  }
+  100% {
+    border-image-source: linear-gradient(90deg, #5b3ccc, #000000);
+  }
+}
+
+.serviceBorder {
+  position: relative;
+  border-radius: 24px !important;
+}
+
+.serviceBorder::before {
+  content: "";
+  position: absolute;
+  inset: 0px; /* Push the border outwards so it's not cut off by the radius */
+  border: 2px solid transparent; /* To define the space for the border */
+  border-image: linear-gradient(#5b3ccc, #000000) 1;
+  border-radius: 30px !important; /* Increase slightly to avoid clipping */
+  animation: moveBorder 4s linear infinite;
+  pointer-events: none; /* Ensure the border does not interfere with interaction */
+}
 
 /* * {
   font-family: "satoshi";
