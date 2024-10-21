@@ -44,18 +44,134 @@
 
 .serviceBorder {
   position: relative;
-  border-radius: 24px !important;
+  border-radius: 24px; /* Match the card's border-radius */
+  z-index: 1; /* Ensure the card content is above the animated border */
 }
 
 .serviceBorder::before {
   content: "";
   position: absolute;
-  inset: 0px; /* Push the border outwards so it's not cut off by the radius */
-  border: 2px solid transparent; /* To define the space for the border */
-  border-image: linear-gradient(#5b3ccc, #000000) 1;
-  border-radius: 30px !important; /* Increase slightly to avoid clipping */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 3px solid transparent; /* Space for the border */
+  border-image: linear-gradient(90deg, #5b3ccc, #000000) 1;
+  border-radius: 24px; /* Match the card's border-radius */
   animation: moveBorder 4s linear infinite;
-  pointer-events: none; /* Ensure the border does not interfere with interaction */
+  pointer-events: none; /* Ensure the border does not interfere with interactions */
+  z-index: -1; /* Ensure the border is below the card's content */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+@keyframes marquee-ltr {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes marquee-rtl {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-ltr {
+  animation: marquee-ltr 25s linear infinite;
+}
+
+.animate-marquee-rtl {
+  animation: marquee-rtl 40s linear infinite;
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 50%;
+  /* transition: background 0.4s ease, border-color 0.4s ease; */
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* Full cover */
+  border-radius: 50%;
+  padding: 2px; /* Adjust this to create space for the border */
+  background: linear-gradient(90deg, #bf8f28, #000000);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  animation: rotateBorder 4s linear infinite;
+  /* transition: opacity 0.4s ease; */
+}
+
+/* .gradient-border:hover::before {
+  opacity: 0;
+} */
+
+/* .gradient-border:hover {
+  background-image: linear-gradient(to bottom, #ffb71c, #5b218d, #261549);
+  padding: 22px;
+  border: 2px solid #ffffff60;
+} */
+
+@keyframes rotateBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.review-border {
+  position: relative;
+  /* border-radius: 24px !important;  */
+  z-index: 1;
+}
+
+.review-border::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid transparent; /* Space for the border */
+  border-image: linear-gradient(90deg, #ffffff80, transparent) 1;
+  /* border-radius: 24px !important;  */
+  animation: moveReviewBorder 4s linear infinite;
+  pointer-events: none; /* Ensure the border does not interfere with interactions */
+  z-index: -1;
+}
+
+@keyframes moveReviewBorder {
+  0% {
+    border-image-source: linear-gradient(90deg, #ffffff80, transparent);
+  }
+  25% {
+    border-image-source: linear-gradient(180deg, #ffffff80, transparent);
+  }
+  50% {
+    border-image-source: linear-gradient(270deg, #ffffff80, transparent);
+  }
+  75% {
+    border-image-source: linear-gradient(360deg, #ffffff80, transparent);
+  }
+  100% {
+    border-image-source: linear-gradient(90deg, #ffffff80, transparent);
+  }
 }
 
 /* * {

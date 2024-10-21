@@ -4,6 +4,7 @@ import { FloatingNav } from "./ui/FloatingNavbar";
 import { navItems } from "@/data";
 import { FaBars } from "react-icons/fa6";
 import { IoCloseSharp } from "react-icons/io5";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,21 +16,24 @@ const Navbar = () => {
   return (
     <header className="flex flex-row justify-between items-center gap-3">
       <div>
-        <img src="/logo.png" alt="collabez-logo" />
+        <img src="/logo.png" alt="collabez-logo" className="cursor-pointer" />
       </div>
 
-      <FloatingNav navItems={navItems} />
+      <div className="sm:block hidden">
+        <FloatingNav navItems={navItems} />
+      </div>
 
       <nav>
         <ul className="lg:flex lg:items-center min-[1400px]:gap-6 xl:gap-4 gap-3 hidden">
           {navItems.map((item, index) => (
-            <li
+            <Link
               key={index}
               className="list-none font-[family-name:var(--font-satoshi)] capitalize cursor-pointer text-white hover:text-heroColor transition-all duration-300 xl:text-base text-sm"
               // onClick={() => handleScroll(item.id)}
+              href={item.link}
             >
               {item.name}
-            </li>
+            </Link>
           ))}
         </ul>
       </nav>

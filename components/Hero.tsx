@@ -51,7 +51,7 @@ const Hero = () => {
               together?
             </p>
 
-            <a href="#about">
+            <a>
               <MagicButton
                 title="Explore Your Possibilities"
                 // icon={<FaLocationArrow />}
