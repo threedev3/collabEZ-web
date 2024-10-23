@@ -63,10 +63,10 @@ const Footer = () => {
               <div>
                 <Image
                   src="/logo.png"
-                  width={200}
+                  width={180}
                   height={100}
                   alt=""
-                  className="cursor-pointer w-auto"
+                  className="cursor-pointer w-[220px] object-contain"
                   onClick={scrollToTop}
                 />
               </div>

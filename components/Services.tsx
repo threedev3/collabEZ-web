@@ -127,10 +127,12 @@ export function Services() {
                       key={index}
                       className="flex justify-between items-center h-full w-[230px] whitespace-nowrap"
                     >
-                      <img
+                      <Image
                         src="/marqueeLogo.png"
                         alt=""
-                        className="w-[170px] h-auto object-contain"
+                        width={200}
+                        height={200}
+                        className="w-[171px] object-contain"
                       />
 
                       <span className="inline-block w-2 h-2 bg-white rounded-full "></span>

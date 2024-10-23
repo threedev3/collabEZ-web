@@ -57,10 +57,10 @@ const Navbar = () => {
         <div>
           <Image
             src="/logo.png"
-            width={200}
+            width={160}
             height={100}
             alt="collabez-logo"
-            className="cursor-pointer w-auto"
+            className="cursor-pointer w-[220px]"
           />
         </div>
 

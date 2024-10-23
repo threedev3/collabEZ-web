@@ -8,6 +8,7 @@ import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import { ActionMeta, SingleValue, StylesConfig } from "react-select";
 
 const Select = dynamic(() => import("react-select"), { ssr: false });
 
@@ -22,9 +23,9 @@ interface FormData {
   email: string;
   phone: string;
   company: string;
-  projectType: any;
-  projectBudget: any;
-  projectTimeline: any;
+  projectType: OptionType | null;
+  projectBudget: OptionType | null;
+  projectTimeline: OptionType | null;
 }
 
 interface FormErrors {
@@ -33,9 +34,9 @@ interface FormErrors {
   email?: string;
   phone?: string;
   company?: string;
-  projectType?: any;
-  projectBudget?: any;
-  projectTimeline?: any;
+  projectType?: string;
+  projectBudget?: string;
+  projectTimeline?: string;
 }
 
 const ContactForm = () => {
@@ -55,23 +56,22 @@ const ContactForm = () => {
 
   const phoneUtil = PhoneNumberUtil.getInstance();
 
-  const isPhoneValid = (phone: any) => {
+  const isPhoneValid = (phone: string): boolean => {
     try {
       return phoneUtil.isValidNumber(phoneUtil.parseAndKeepRawInput(phone));
-    } catch (error) {
-      console.log(error);
+    } catch {
       return false;
     }
   };
 
   const isValid = isPhoneValid(formData.phone);
 
-  const handleInputChange = (e: any) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handlePhoneChange = (value: any) => {
+  const handlePhoneChange = (value: string): void => {
     setFormData((prevData) => ({
       ...prevData,
       phone: value,
@@ -91,8 +91,20 @@ const ContactForm = () => {
   //   }));
   // };
 
-  const handleSelectChange = (selectedOption: any, actionMeta: any) => {
-    setFormData((prev) => ({ ...prev, [actionMeta.name]: selectedOption }));
+  const handleSelectChange = (
+    newValue: unknown,
+    actionMeta: ActionMeta<unknown>
+  ): void => {
+    // Cast newValue to the expected SingleValue<OptionType>
+    const selectedOption = newValue as SingleValue<OptionType>;
+
+    // Ensure actionMeta.name is a string
+    const fieldName = actionMeta.name as string;
+
+    setFormData((prevData) => ({
+      ...prevData,
+      [fieldName]: selectedOption, // Use 'fieldName' as a string and 'selectedOption'
+    }));
   };
 
   // const defaultOptions = {
@@ -133,7 +145,7 @@ const ContactForm = () => {
     return Object.keys(formErrors).length === 0; // Return true if no errors
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateForm()) {
       setIsSubmitting(true);
@@ -217,8 +229,8 @@ const ContactForm = () => {
     { value: "More than 6 months", label: "More than 6 months" },
   ];
 
-  const customStyles = {
-    control: (provided: any, state: { selectProps: { isMulti: any } }) => ({
+  const customStyles: StylesConfig<unknown, boolean> = {
+    control: (provided) => ({
       ...provided,
       maxHeight: "56px",
       backgroundColor: "#FFFFFF05",
@@ -238,15 +250,15 @@ const ContactForm = () => {
         border: "2px solid rgb(255 255 255 / 0.2)",
       },
     }),
-    placeholder: (provided: any) => ({
+    placeholder: (provided) => ({
       ...provided,
       color: "rgb(255 255 255 / 0.6)", // placeholder color (text-gray-400)
     }),
-    singleValue: (provided: any) => ({
+    singleValue: (provided) => ({
       ...provided,
       color: "white", // value color (text-black)
     }),
-    dropdownIndicator: (provided: any, state: { isDisabled: any }) => ({
+    dropdownIndicator: (provided, state) => ({
       ...provided,
       color: "rgb(255 255 255 / 0.6)", // dropdown arrow color (text-black)
       paddingRight: "0.5rem",
@@ -254,7 +266,7 @@ const ContactForm = () => {
     }),
     indicatorSeparator: () => ({ display: "none" }), // remove separator
 
-    menu: (provided: any) => ({
+    menu: (provided) => ({
       ...provided,
       borderRadius: "0.375rem",
       border: "1px solid #38383856",
@@ -266,7 +278,7 @@ const ContactForm = () => {
     }),
 
     // Properly apply scrolling behavior to the list of options
-    menuList: (provided: any) => ({
+    menuList: (provided) => ({
       ...provided,
       maxHeight: "210px",
       overflowY: "auto",
@@ -286,7 +298,7 @@ const ContactForm = () => {
         background: "#555555",
       },
     }),
-    option: (provided: any, state: { isSelected: any; isFocused: any }) => ({
+    option: (provided, state) => ({
       ...provided,
       backgroundColor: state.isSelected
         ? "rgb(0 0 0 / 0.6)" // selected background color (from your example)

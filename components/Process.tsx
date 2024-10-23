@@ -4,8 +4,13 @@ import { motion } from "framer-motion";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { processSteps } from "@/data";
 import { useInView } from "react-intersection-observer";
+
+interface ProcessStepType {
+  number: string; // Adjust type if necessary
+  title: string;
+  description: string;
+}
 
 const Process = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -44,7 +49,52 @@ const Process = () => {
     cssEase: "linear",
   };
 
-  const ProcessStep = ({ step, index }: { step: any; index: number }) => (
+  const processSteps: ProcessStepType[] = [
+    {
+      number: "01",
+      title: "Discovery",
+      description:
+        "We start with a detailed discussion to understand your needs, goals, and vision.",
+    },
+    {
+      number: "02",
+      title: "Research & Planning",
+      description:
+        "Our team conducts thorough research and creates a comprehensive project plan.",
+    },
+    {
+      number: "03",
+      title: "Design",
+      description:
+        "We create intuitive and visually appealing designs tailored to your brand.",
+    },
+    {
+      number: "04",
+      title: "Development",
+      description:
+        "Our skilled developers bring the designs to life with clean, efficient code.",
+    },
+    {
+      number: "05",
+      title: "Testing & Refinement",
+      description:
+        "Rigorous testing ensures a bug-free, high-performance final product.",
+    },
+    {
+      number: "06",
+      title: "Launch & Support",
+      description:
+        "We assist with deployment and provide ongoing support to ensure your success.",
+    },
+  ];
+
+  const ProcessStep = ({
+    step,
+    index,
+  }: {
+    step: ProcessStepType;
+    index: number;
+  }) => (
     <motion.div
       key={step.number}
       className="flex flex-col items-center text-center relative"
@@ -159,97 +209,6 @@ const Process = () => {
             </span>
           </h3>
         </div>
-
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-          {processSteps.map((step, index) => (
-            <motion.div
-              key={step.number}
-              className="flex flex-col items-center text-center"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-            >
-              <motion.div
-                className="relative w-24 h-24 mb-4"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
-              >
-                <svg className="w-full h-full" viewBox="0 0 100 100">
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="45"
-                    fill="none"
-                    stroke="#FFA500"
-                    strokeWidth="2"
-                    strokeDasharray="5,5"
-                    className="animate-spin-slow"
-                  />
-                </svg>
-                <div className="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold">
-                  {step.number}
-                </div>
-              </motion.div>
-              <h4 className="text-white text-xl font-bold mb-2">
-                {step.title}
-              </h4>
-              <p className="text-gray-300 text-sm">{step.description}</p>
-            </motion.div>
-          ))}
-        </div> */}
-
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-          {processSteps.map((step, index) => (
-            <motion.div
-              key={step.number}
-              className="flex flex-col items-center text-center"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-            >
-              <motion.div
-                className="relative w-40 h-40 mb-4  "
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
-              >
-                <svg className="w-full h-full" viewBox="0 0 100 100">
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="45"
-                    fill="none"
-                    stroke="#FFA500"
-                    strokeWidth="2"
-                    strokeDasharray="10,10"
-                    className="animate-circle"
-                  />
-                </svg>
-                <div className="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold">
-                  {step.number}
-                </div>
-              </motion.div>
-              <h4 className="text-white text-xl font-bold mb-2">
-                {step.title}
-              </h4>
-              <p className="text-gray-300 text-sm">{step.description}</p>
-              {index < processSteps.length - 1 && index % 3 !== 2 && (
-                <div className="absolute top-12 -right-36 w-1/2 h-0.5 overflow-hidden">
-                  <div
-                    className="w-full h-full  animate-dash-move"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(to right, #FFA500 50%, transparent 50%)",
-                      backgroundSize: "20px 100%",
-                    }}
-                  />
-                </div>
-              )}
-            
-            </motion.div>
-          ))}
-        </div> */}
 
         {isMobile ? (
           <Slider {...sliderSettings} className="w-full relative z-20">
