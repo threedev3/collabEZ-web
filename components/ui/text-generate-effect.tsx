@@ -20,8 +20,9 @@ export const TextGenerateEffect = ({
         opacity: 1,
       },
       {
-        duration: 2,
-        delay: stagger(0.15),
+        duration: 1,
+
+        delay: stagger(0.05),
       }
     );
   }, [scope.current]);
@@ -70,7 +71,7 @@ export const TextGenerateEffect = ({
     <div className={cn("font-bold", className)}>
       {/* mt-4 to my-4 */}
       <div className="">
-        <div className=" dark:text-white bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor xl:leading-tight leading-none tracking-wide ">
+        <div className=" dark:text-white bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor min-[1400px]:leading-tight leading-none tracking-wide ">
           {renderWords()}
         </div>
       </div>

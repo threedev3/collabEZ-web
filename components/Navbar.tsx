@@ -5,6 +5,7 @@ import { navItems } from "@/data";
 import { FaBars } from "react-icons/fa6";
 import { IoCloseSharp } from "react-icons/io5";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,64 +14,103 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
     document.body.style.overflow = isMenuOpen ? "auto" : "hidden";
   };
+
+  const handleScroll = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      const navHeight = 80; // Approximate navbar height
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+    setIsMenuOpen(false);
+  };
+
+  const menuVariants = {
+    closed: {
+      transition: {
+        staggerChildren: 0.15,
+        staggerDirection: -1,
+      },
+      opacity: 0,
+    },
+    open: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    closed: { opacity: 0, y: 50 },
+    open: { opacity: 1, y: 0 },
+  };
   return (
-    <header className="flex flex-row justify-between items-center gap-3">
-      <div>
-        <img src="/logo.png" alt="collabez-logo" className="cursor-pointer" />
-      </div>
+    <header className="flex flex-row justify-between items-center gap-3 relative">
+      <div className="flex flex-row justify-between items-center gap-3 w-full ">
+        <div>
+          <img src="/logo.png" alt="collabez-logo" className="cursor-pointer" />
+        </div>
 
-      <div className="sm:block hidden">
-        <FloatingNav navItems={navItems} />
-      </div>
+        <nav>
+          <ul className="lg:flex lg:items-center min-[1400px]:gap-6 xl:gap-4 gap-3 hidden">
+            {navItems.map((item, index) => (
+              <li
+                key={index}
+                className="list-none font-[family-name:var(--font-satoshi)] capitalize cursor-pointer text-white hover:text-heroColor transition-all duration-300 xl:text-base text-sm"
+                onClick={() => handleScroll(item.id)}
+                // href={item.id}
+              >
+                {item.name}
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-      <nav>
-        <ul className="lg:flex lg:items-center min-[1400px]:gap-6 xl:gap-4 gap-3 hidden">
-          {navItems.map((item, index) => (
-            <Link
-              key={index}
-              className="list-none font-[family-name:var(--font-satoshi)] capitalize cursor-pointer text-white hover:text-heroColor transition-all duration-300 xl:text-base text-sm"
-              // onClick={() => handleScroll(item.id)}
-              href={item.link}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </ul>
-      </nav>
+        <div className="sm:block hidden absolute top-0 z-50">
+          <FloatingNav navItems={navItems} />
+        </div>
 
-      <div className="lg:flex lg:items-center xl:gap-6 gap-4 hidden">
-        <button
-          className="min-[1400px]:py-2 xl:py-1.5 py-1.5 min-[1400px]:px-10 xl:px-4 px-4 bg-white  rounded-full text-black font-semibold font-[family-name:var(--font-satoshi)] transition-all duration-300 xl:text-base text-sm"
-          //   onClick={() => handleScroll("contact-us")}
+        <div className="lg:flex lg:items-center xl:gap-6 gap-4 hidden">
+          <button
+            className="min-[1400px]:py-2 xl:py-1.5 py-1.5 min-[1400px]:px-10 xl:px-4 px-4 bg-white  rounded-full text-black font-semibold font-[family-name:var(--font-satoshi)] transition-all duration-300 xl:text-base text-sm"
+            onClick={() => handleScroll("contact")}
+          >
+            Contact Us
+          </button>
+        </div>
+
+        <div
+          className="lg:hidden block w-10 h-8 cursor-pointer z-50 relative"
+          onClick={toggleMenu}
         >
-          Contact Us
-        </button>
+          <FaBars
+            className={`h-8 w-8 text-white absolute inset-0 transition-all duration-300 ease-in-out ${
+              isMenuOpen
+                ? "opacity-0 rotate-90 scale-50"
+                : "opacity-100 rotate-0 scale-100"
+            }`}
+          />
+          <IoCloseSharp
+            className={`h-8 w-8 text-white absolute inset-0 transition-all duration-300 ease-in-out ${
+              isMenuOpen
+                ? "opacity-100 rotate-0 scale-100"
+                : "opacity-0 rotate-90 scale-50"
+            }`}
+          />
+        </div>
       </div>
 
-      <div
-        className="lg:hidden block w-10 h-8 cursor-pointer z-50 relative"
-        onClick={toggleMenu}
-      >
-        <FaBars
-          className={`h-8 w-8 text-white absolute inset-0 transition-all duration-300 ease-in-out ${
-            isMenuOpen
-              ? "opacity-0 rotate-90 scale-50"
-              : "opacity-100 rotate-0 scale-100"
-          }`}
-        />
-        <IoCloseSharp
-          className={`h-8 w-8 text-white absolute inset-0 transition-all duration-300 ease-in-out ${
-            isMenuOpen
-              ? "opacity-100 rotate-0 scale-100"
-              : "opacity-0 rotate-90 scale-50"
-          }`}
-        />
-      </div>
-
-      <div
-        className={`fixed inset-0 bg-black bg-opacity-95 transform ${
+      {/* <div
+        className={`fixed z-40 inset-0 bg-black bg-opacity-95 transform ${
           isMenuOpen ? "translate-y-0" : "-translate-y-full"
-        } transition-transform duration-500 ease-in-out xl:hidden flex items-center justify-center`}
+        } transition-transform duration-500 ease-in-out lg:hidden flex items-center justify-center`}
       >
         <div className="flex flex-col items-center justify-center h-full w-full">
           <nav>
@@ -79,7 +119,7 @@ const Navbar = () => {
                 <li
                   key={index}
                   className="font-[family-name:var(--font-satoshi)] uppercase cursor-pointer text-white hover:text-heroColor transition-all duration-300 sm:text-4xl min-[540px]:text-3xl text-2xl"
-                  //   onClick={() => handleScroll(item.id)}
+                  onClick={() => handleScroll(item.id)}
                 >
                   {item.name}
                 </li>
@@ -89,13 +129,61 @@ const Navbar = () => {
           <div className="mt-12 space-y-4 w-64">
             <button
               className="w-full py-3 px-6 border-2 border-heroColor  rounded-full text-white font-[family-name:var(--font-satoshi)]  transition-all duration-300 text-xl"
-              //   onClick={() => handleScroll("contact-us")}
+              onClick={() => handleScroll("contact")}
             >
               Contact Us
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
+
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-black bg-opacity-95 flex flex-col gap-6 items-center justify-center"
+          >
+            <motion.nav
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={menuVariants}
+            >
+              <ul className="space-y-5 text-center">
+                {navItems.map((item, index) => (
+                  <motion.li key={index} variants={itemVariants}>
+                    <button
+                      onClick={() => handleScroll(item.id)}
+                      className="text-white text-4xl font-bold hover:text-yellow-300 transition-colors duration-300 font-[family-name:var(--font-satoshi)]"
+                    >
+                      {item.name}
+                    </button>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.nav>
+
+            <motion.div
+              className="flex justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              <motion.button
+                className="py-3 px-8 bg-white text-black rounded-full font-bold text-lg shadow-lg font-[family-name:var(--font-satoshi)]"
+                onClick={() => handleScroll("contact")}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Contact Us
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

@@ -38,6 +38,15 @@ const config: Config = {
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",
         "gradient-move": "gradient-move 4s linear infinite",
+        // "spin-slow": "spin 20s linear infinite",
+        // circle: "circle 20s linear infinite",
+        // "move-gradient": "moveGradient 3s linear infinite",
+        // "move-gradient-vertical": "moveGradientVertical 3s linear infinite",
+        circle: "circle 20s linear infinite",
+        "dash-move": "dashMove 3s linear infinite",
+        "dash-move-vertical": "dashMoveVertical 20s linear infinite",
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
       keyframes: {
         spotlight: {
@@ -53,6 +62,35 @@ const config: Config = {
         "gradient-move": {
           "0%": { backgroundPosition: "0% 50%" },
           "100%": { backgroundPosition: "100% 50%" },
+        },
+        // circle: {
+        //   "0%": { strokeDashoffset: "0" },
+        //   "100%": { strokeDashoffset: "283" }, // Approximately 2 * PI * 45 (circle radius)
+        // },
+        // moveGradient: {
+        //   "0%": { backgroundPosition: "200% 0" },
+        //   "100%": { backgroundPosition: "-200% 0" },
+        // },
+        // moveGradientVertical: {
+        //   "0%": { backgroundPosition: "0 200%" },
+        //   "100%": { backgroundPosition: "0 -200%" },
+        // },
+        circle: {
+          "0%": { strokeDashoffset: "0" },
+          "100%": { strokeDashoffset: "283" },
+        },
+        dashMove: {
+          "0%": { backgroundPosition: "0 0" },
+          "100%": { backgroundPosition: "40px 0" },
+        },
+        dashMoveVertical: {
+          "0%": { backgroundPosition: "0 0" },
+          "100%": { backgroundPosition: "0 40px" },
+        },
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
         },
       },
     },

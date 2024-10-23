@@ -7,10 +7,10 @@ import { serviceItems } from "@/data";
 
 export function Services() {
   return (
-    <div className="relative sm:px-10 px-5 sm:py-16 py-5 w-full" id="services">
+    <div className="relative sm:px-10 px-5 sm:py-10 py-5 w-full" id="services">
       <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-6 lg:gap-6 gap-6 items-start justify-center h-full">
         <div className="flex  min-[806px]:gap-6 gap-0 items-start justify-between w-full">
-          <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-7xl min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)]">
+          <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-7xl min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[375px]:text-[32px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)]">
             Let’s work together
           </h3>
         </div>
@@ -29,15 +29,15 @@ export function Services() {
         </div>
 
         {/* Grid for the services */}
-        <div className="grid lg:grid-cols-3 flex-wrap  gap-6 w-full mt-6">
+        <div className="grid lg:grid-cols-2 flex-wrap  gap-6 w-full mt-6">
           {serviceItems.map((item, index) => (
             <CardSpotlight
               key={index}
               className={`${
                 index === 0 || index === 3 || index === 4
-                  ? "lg:col-span-2"
+                  ? "col-span-1"
                   : "col-span-1"
-              } relative bg-gradient-to-t from-[#111] serviceBorder to-[#1a1a1a] p-6 shadow-md hover:shadow-lg transition-shadow duration-300 group overflow-hidden min-h-96`}
+              } relative bg-gradient-to-t from-[#111] serviceBorder to-[#1a1a1a] p-6 shadow-md hover:shadow-lg transition-shadow duration-300 group overflow-hidden max-h-96 flex justify-between items-center gap-4`}
             >
               {/* Gradient Border Animation */}
               {/* <motion.div
@@ -54,17 +54,17 @@ export function Services() {
                 }}
               ></motion.div> */}
               {/* Background */}
-              <div
+              {/* <div
                 className={item.className}
                 style={{
                   backgroundImage: `url(${item.sideImg})`,
                 }}
-              />
+              /> */}
               {/* Overlay */}
               {/* <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-900/50 to-blue-900/50 group-hover:opacity-75 transition-opacity duration-300"></div> */}
 
               {/* Content */}
-              <div className="relative flex flex-col space-y-6 text-white z-10 h-full">
+              <div className="relative flex flex-col justify-center space-y-6 text-white z-10 h-full">
                 <div className="w-[60px] h-[60px] bg-[#6F6F71] rounded-full flex justify-center items-center flex-shrink-0">
                   <img
                     src={item.icon}
@@ -72,10 +72,10 @@ export function Services() {
                     className="h-[33px] w-[33px] object-contain"
                   />
                 </div>
-                <h3 className="font-[family-name:var(--font-satoshi)] font-bold text-white xl:text-4xl md:text-3xl sm:text-2xl text-2xl  mb-2 mt-2">
+                <h3 className="font-[family-name:var(--font-satoshi)] font-bold text-white xl:text-4xl lg:text-[26px] md:text-3xl sm:text-2xl text-2xl  mb-2 mt-2">
                   {item.title}
                 </h3>
-                <p className="font-[family-name:var(--font-satoshi)] font-normal text-white text-lg mb-4 max-w-[380px]">
+                <p className="font-[family-name:var(--font-satoshi)] font-normal text-white xl:text-lg text-base mb-4 max-w-[380px]">
                   {item.description}
                 </p>
                 <div className="flex gap-2 items-start">
@@ -88,6 +88,7 @@ export function Services() {
                   <MdArrowOutward />
                 </div>
               </div>
+              <img src={item.sideImg} className={item.className} />
             </CardSpotlight>
           ))}
         </div>

@@ -30,7 +30,7 @@ const ScrollToTop = () => {
     <div>
       {showButton && (
         <div
-          className="md:w-16 md:h-16 w-12 h-12 bg-heroColor rounded-full p-2 fixed bottom-4 right-4 flex justify-center items-center cursor-pointer text-white"
+          className="md:w-16 md:h-16 w-12 h-12 bg-heroColor rounded-full p-2 fixed bottom-4 right-4 flex justify-center items-center cursor-pointer text-white z-20"
           onClick={scrollToTop}
         >
           <svg

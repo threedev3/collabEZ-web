@@ -1,11 +1,11 @@
 export const navItems = [
-  { name: "Home", link: "#home" },
-  { name: "Services", link: "#services" },
-  { name: "Our Portfolio", link: "#portfolio" },
-  { name: "Why Collabez", link: "#why-choose" },
-  { name: "Reviews", link: "#reviews" },
-  { name: "Our Process", link: "#process" },
-  { name: "Contact Us", link: "#contact" },
+  { name: "Home", id: "home" },
+  { name: "Services", id: "services" },
+  { name: "Our Portfolio", id: "portfolio" },
+  { name: "Why Collabez", id: "why-choose" },
+  { name: "Reviews", id: "reviews" },
+  { name: "Our Process", id: "process" },
+  { name: "Contact Us", id: "contact" },
 ];
 
 export const serviceItems = [
@@ -15,7 +15,7 @@ export const serviceItems = [
       "Building fast, secure, and scalable websites tailored to your business needs, with a focus on performance and reliability.",
     sideImg: "/skeleton1.png",
     className:
-      "absolute bottom-0 -right-40 w-[460px] h-[320px] rounded-3xl opacity-50 md:block hidden",
+      "-mr-64 mt-16 w-[460px] h-[320px] rounded-3xl opacity-80 md:block hidden object-contain",
     icon: "/service1.png",
   },
   {
@@ -24,7 +24,7 @@ export const serviceItems = [
       "Creating intuitive, user-friendly interfaces that drive engagement and ensure a seamless experience across all devices.",
     sideImg: "/skeleton4.png",
     className:
-      "absolute top-10 -right-44 w-[360px] h-[360px] bg-contain bg-no-repeat rounded-3xl opacity-50 md:block hidden",
+      "-mr-28 xl:mt-24 mt-40 w-[360px] h-[360px] bg-contain bg-no-repeat rounded-3xl opacity-80 md:block hidden object-contain",
     icon: "/service2.png",
   },
   {
@@ -33,7 +33,7 @@ export const serviceItems = [
       "Developing powerful, responsive web apps that offer enhanced functionality.",
     sideImg: "/skeleton3.png",
     className:
-      "absolute bottom-0 -right-60 w-[460px] h-[320px] rounded-3xl opacity-50 md:block hidden",
+      "-mr-64 mt-16 w-[460px] h-[320px] rounded-3xl opacity-80 md:block hidden object-contain",
     icon: "/service4.png",
   },
   {
@@ -42,7 +42,7 @@ export const serviceItems = [
       "Native and cross-platform mobile apps built for performance, user experience, and engagement.",
     sideImg: "/skeleton2.png",
     className:
-      "absolute top-10 -right-44 w-[360px] h-[360px] bg-contain bg-no-repeat rounded-3xl opacity-50  md:block hidden",
+      "-mr-28 xl:mt-24 mt-40  w-[360px] h-[360px] bg-contain bg-no-repeat rounded-3xl opacity-80  md:block hidden object-contain",
     icon: "/service4.png",
   },
   {
@@ -51,7 +51,7 @@ export const serviceItems = [
       "Optimizing development workflows and integrating third-party services for seamless performance.",
     sideImg: "/skeleton1.png",
     className:
-      "absolute bottom-0 -right-40 w-[460px] h-[320px] rounded-3xl opacity-50  md:block hidden",
+      "-mr-64 mt-16 w-[460px] h-[320px] rounded-3xl opacity-80  md:block hidden object-contain",
     icon: "/service5.png",
   },
   {
@@ -60,7 +60,7 @@ export const serviceItems = [
       "From custom stores to Shopify and WooCommerce, we build e-commerce platforms.",
     sideImg: "/skeleton5.png",
     className:
-      "absolute bottom-0 -right-60 w-[460px] h-[320px] rounded-3xl opacity-50 md:block hidden",
+      "-mr-64 mt-16 w-[460px] h-[320px] rounded-3xl opacity-80 md:block hidden object-contain",
     icon: "/service6.png",
   },
 ];

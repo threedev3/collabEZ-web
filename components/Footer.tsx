@@ -1,17 +1,23 @@
+"use client";
+
 import React from "react";
 import MagicButton from "./MagicButton";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="relative  w-full">
       <div className="sm:px-10 px-5 sm:py-10 py-5 border-t-2 border-[#63518960] border-b-2">
         <div className="absolute -top-40 -left-48 bg-blur-gradient-purple opacity-80 w-[900px] h-[900px]" />
 
-        <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-6 lg:gap-6 gap-6 items-start justify-center h-full">
+        <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-6 lg:gap-6 gap-6 items-start justify-center h-full relative z-[5]">
           <div className="flex min-[806px]:flex-row flex-col min-[806px]:gap-6 gap-0 items-start justify-between w-full">
-            <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-7xl min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)]">
+            <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-7xl min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[375px]:text-[32px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)]">
               Ready to Get Started?
             </h3>
             {/* <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none min-[1525px]:mt-8 mt-6 flex-shrink-0">
@@ -20,7 +26,7 @@ const Footer = () => {
               Start Your Journey
             </span>
           </button> */}
-            <a className="min-[1525px]:mt-8 mt-4 inline-flex flex-shrink-0">
+            <a className="min-[1525px]:mt-8 mt-4 inline-flex flex-shrink-0 cursor-pointer">
               <MagicButton
                 title="Get a Free Consultation"
                 // icon={<FaLocationArrow />}
@@ -42,11 +48,16 @@ const Footer = () => {
       </div>
 
       <div className="sm:px-10 px-5 sm:py-10 py-5 relative z-10">
-        <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-6 lg:gap-6 gap-6 items-start justify-center h-full">
+        <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-6 lg:gap-6 gap-6 items-start justify-center h-full relative z-10">
           <div className="grid lg:grid-cols-4 min-[540px]:grid-cols-2 grid-cols-1 min-[540px]:gap-6 gap-8 place-items-start place-content-center w-full">
             <div className="flex flex-col gap-3">
               <div>
-                <img src="/logo.png" alt="" className="cursor-pointer" />
+                <img
+                  src="/logo.png"
+                  alt=""
+                  className="cursor-pointer"
+                  onClick={scrollToTop}
+                />
               </div>
               <div>
                 <p className="font-[family-name:var(--font-satoshi)] text-white min-[540px]:text-lg text-base max-w-sm">
@@ -140,7 +151,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="absolute -bottom-32 -right-48 bg-blur-gradient opacity-80 w-[700px] h-[700px]" />
+      <div className="absolute -bottom-32 -right-48 bg-blur-gradient opacity-80 w-[700px] h-[700px] z-0" />
     </div>
   );
 };

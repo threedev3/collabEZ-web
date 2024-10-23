@@ -40,13 +40,13 @@ const Reviews = () => {
     ],
   };
   return (
-    <div className="relative sm:px-10 px-5 sm:py-16 py-5 w-full " id="reviews">
-      {/* <div className="absolute top-10 -left-48 bg-blur-gradient w-[900px] h-[900px] -z-0" /> */}
+    <div className="relative sm:px-10 px-5 sm:py-10 py-5 w-full " id="reviews">
+      <div className="absolute top-0 -left-48 bg-blur-gradient md:w-[700px] md:h-[700px] w-[300px] h-[300px] -z-0" />
       <div className="bg-[url('/reviewsBg.png')] bg-no-repeat bg-contain bg-right absolute right-0 top-40 bottom-0 lg:w-[500px] w-[400px]" />
 
       <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-8 lg:gap-6 gap-6 items-start justify-center h-full">
-        <div className="flex flex-col min-[806px]:gap-6 gap-0 items-start justify-between w-full">
-          <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-7xl min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)] ">
+        <div className="flex flex-col min-[806px]:gap-6 gap-6 items-start justify-between w-full">
+          <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-7xl min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[375px]:text-[32px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)] ">
             Our Client Reviews
           </h3>
 
@@ -56,7 +56,7 @@ const Reviews = () => {
           </p>
         </div>
 
-        <Slider {...settings} className="w-full relative z-30">
+        <Slider {...settings} className="w-full relative z-20">
           {reviewItems.map((reviewItem, index) => (
             <div className="mx-auto" key={index}>
               <div className="bg-reviewCard/40 min-[1426px]:max-w-[460px] xl:max-w-[350px] max-w-full  backdrop-blur-sm review-border flex flex-col gap-8 p-6 mx-3 cursor-pointer">
@@ -92,7 +92,7 @@ const Reviews = () => {
         </Slider>
       </div>
 
-      {/* <div className="absolute -bottom-40 -right-48 bg-blur-gradient-purple  w-[900px] h-[900px]" /> */}
+      <div className="absolute -bottom-60 -right-28 bg-blur-gradient-purple  w-[600px] h-[600px]" />
     </div>
   );
 };
