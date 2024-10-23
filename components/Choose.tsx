@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MagicButton from "./MagicButton";
+import Image from "next/image";
 
 const Choose = () => {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
@@ -73,7 +74,7 @@ const Choose = () => {
           {!isLargeScreen ? (
             <Slider {...sliderSettings} className="w-full relative">
               {chooseItems.map((chooseItem, index) => (
-                <div className="relative">
+                <div className="relative" key={index}>
                   <div
                     key={index}
                     className="flex flex-col gap-6 items-center mt-10 group"
@@ -84,10 +85,12 @@ const Choose = () => {
                           0{index + 1}
                         </p>
                       </div>
-                      <img
+                      <Image
                         src={chooseItem.icon}
                         alt=""
-                        className="w-20 object-contain"
+                        height={80}
+                        width={80}
+                        className="w-auto object-contain"
                       />
                     </div>
 
@@ -120,10 +123,12 @@ const Choose = () => {
                         0{index + 1}
                       </p>
                     </div>
-                    <img
+                    <Image
                       src={chooseItem.icon}
                       alt=""
-                      className="w-20 object-contain"
+                      height={70}
+                      width={70}
+                      className="w-auto object-contain"
                     />
                   </div>
 

@@ -9,7 +9,6 @@ import Process from "@/components/Process";
 import Reviews from "@/components/Reviews";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Services } from "@/components/Services";
-import Image from "next/image";
 import { Toaster } from "react-hot-toast";
 
 export default function Home() {

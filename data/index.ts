@@ -67,37 +67,37 @@ export const serviceItems = [
 
 export const chooseItems = [
   {
-    icon: "./choose1.png",
+    icon: "/choose1.png",
     title: "On-Time Delivery",
     description:
       "We understand the importance of deadlines. Our agile team ensures your project is delivered when promised.",
   },
   {
-    icon: "./choose2.png",
+    icon: "/choose2.png",
     title: "Long Term Partnership",
     description:
       "We're not just service providers; we're your dedicated tech allies, committed to your long-term success.",
   },
   {
-    icon: "./choose3.png",
+    icon: "/choose3.png",
     title: "Diverse Expertise",
     description:
       "From websites to complex apps, our versatile team has the skills to bring any digital vision to life.",
   },
   {
-    icon: "./choose4.png",
+    icon: "/choose4.png",
     title: "Tailored Solutions",
     description:
       "We don't believe in one-size-fits-all. Each solution is customized to meet your unique business needs.",
   },
   {
-    icon: "./choose5.png",
+    icon: "/choose5.png",
     title: "Quality & Expertise",
     description:
       "With a track record of delivering high-quality websites, apps, and e-commerce platforms, we ensure every project meets the highest standards.",
   },
   {
-    icon: "./choose6.png",
+    icon: "/choose6.png",
     title: "Transparent Pricing",
     description:
       "Our pricing is fair, transparent, and designed to fit your budget while ensuring you get the quality you deserve.",
@@ -129,42 +129,42 @@ export const portfolioItems = [
 
 export const reviewItems = [
   {
-    avatar: "./avatar1.png",
+    avatar: "/avatar1.png",
     name: "Jonathan Doe",
     tagLine: "Lorem Ipsum",
     review:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
   },
   {
-    avatar: "./avatar2.png",
+    avatar: "/avatar2.png",
     name: "Jonathan Doe",
     tagLine: "Lorem Ipsum",
     review:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
   },
   {
-    avatar: "./avatar3.png",
+    avatar: "/avatar3.png",
     name: "Jonathan Doe",
     tagLine: "Lorem Ipsum",
     review:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
   },
   {
-    avatar: "./avatar4.png",
+    avatar: "/avatar4.png",
     name: "Jonathan Doe",
     tagLine: "Lorem Ipsum",
     review:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
   },
   {
-    avatar: "./avatar5.png",
+    avatar: "/avatar5.png",
     name: "Jonathan Doe",
     tagLine: "Lorem Ipsum",
     review:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
   },
   {
-    avatar: "./avatar6.png",
+    avatar: "/avatar6.png",
     name: "Jonathan Doe",
     tagLine: "Lorem Ipsum",
     review:

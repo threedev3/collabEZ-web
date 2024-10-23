@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { reviewItems } from "@/data";
+import Image from "next/image";
 
 const Reviews = () => {
   const settings = {
@@ -63,7 +64,12 @@ const Reviews = () => {
                 <div className="flex flex-row justify-between items-center">
                   <div className="flex flex-row items-center gap-3">
                     <div>
-                      <img src={reviewItem.avatar} alt="" />
+                      <Image
+                        src={reviewItem.avatar}
+                        alt=""
+                        width={50}
+                        height={50}
+                      />
                     </div>
 
                     <div className="flex flex-col gap-0.5">
@@ -77,7 +83,7 @@ const Reviews = () => {
                   </div>
 
                   <div>
-                    <img src="./quote.png" alt="" />
+                    <Image src="/quote.png" alt="" width={50} height={50} />
                   </div>
                 </div>
 

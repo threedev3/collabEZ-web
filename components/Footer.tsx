@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import MagicButton from "./MagicButton";
+import Image from "next/image";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -61,10 +61,12 @@ const Footer = () => {
           <div className="grid lg:grid-cols-4 min-[540px]:grid-cols-2 grid-cols-1 min-[540px]:gap-6 gap-8 place-items-start place-content-center w-full">
             <div className="flex flex-col gap-3">
               <div>
-                <img
+                <Image
                   src="/logo.png"
+                  width={200}
+                  height={100}
                   alt=""
-                  className="cursor-pointer"
+                  className="cursor-pointer w-auto"
                   onClick={scrollToTop}
                 />
               </div>

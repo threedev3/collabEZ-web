@@ -4,8 +4,8 @@ import { FloatingNav } from "./ui/FloatingNavbar";
 import { navItems } from "@/data";
 import { FaBars } from "react-icons/fa6";
 import { IoCloseSharp } from "react-icons/io5";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,7 +55,13 @@ const Navbar = () => {
     <header className="flex flex-row justify-between items-center gap-3 relative">
       <div className="flex flex-row justify-between items-center gap-3 w-full ">
         <div>
-          <img src="/logo.png" alt="collabez-logo" className="cursor-pointer" />
+          <Image
+            src="/logo.png"
+            width={200}
+            height={100}
+            alt="collabez-logo"
+            className="cursor-pointer w-auto"
+          />
         </div>
 
         <nav>
@@ -106,36 +112,6 @@ const Navbar = () => {
           />
         </div>
       </div>
-
-      {/* <div
-        className={`fixed z-40 inset-0 bg-black bg-opacity-95 transform ${
-          isMenuOpen ? "translate-y-0" : "-translate-y-full"
-        } transition-transform duration-500 ease-in-out lg:hidden flex items-center justify-center`}
-      >
-        <div className="flex flex-col items-center justify-center h-full w-full">
-          <nav>
-            <ul className="space-y-5 text-center">
-              {navItems.map((item, index) => (
-                <li
-                  key={index}
-                  className="font-[family-name:var(--font-satoshi)] uppercase cursor-pointer text-white hover:text-heroColor transition-all duration-300 sm:text-4xl min-[540px]:text-3xl text-2xl"
-                  onClick={() => handleScroll(item.id)}
-                >
-                  {item.name}
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <div className="mt-12 space-y-4 w-64">
-            <button
-              className="w-full py-3 px-6 border-2 border-heroColor  rounded-full text-white font-[family-name:var(--font-satoshi)]  transition-all duration-300 text-xl"
-              onClick={() => handleScroll("contact")}
-            >
-              Contact Us
-            </button>
-          </div>
-        </div>
-      </div> */}
 
       <AnimatePresence>
         {isMenuOpen && (

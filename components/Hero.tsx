@@ -4,7 +4,6 @@ import Navbar from "./Navbar";
 import { CardSpotlight } from "./ui/card-spotlight";
 import { Spotlight } from "./ui/spotlight";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
-import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "./MagicButton";
 
 const Hero = () => {
@@ -66,9 +65,9 @@ const Hero = () => {
               <p className="text-center md:tracking-wider xl:mb-4 text-base text-white/80 min-[414px]:text-base min-[540px]:text-base md:text-lg xl:text-xl font-[family-name:var(--font-satoshi)]">
                 Searching for a dependable tech ally in UAE & KSA? Look no
                 further. CollabEZ brings your ideas to life with precision and
-                care. We're not just service providers; we're your long-term
-                partners in digital success. Curious about what we can achieve
-                together?
+                care. We&apos;re not just service providers; we&apos;re your
+                long-term partners in digital success. Curious about what we can
+                achieve together?
               </p>
 
               <a className="relative z-20 cursor-pointer">

@@ -1,3 +1,4 @@
+"use client";
 import { portfolioItems } from "@/data";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa6";

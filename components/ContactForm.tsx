@@ -7,6 +7,7 @@ import "react-international-phone/style.css";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 const Select = dynamic(() => import("react-select"), { ssr: false });
 
@@ -58,6 +59,7 @@ const ContactForm = () => {
     try {
       return phoneUtil.isValidNumber(phoneUtil.parseAndKeepRawInput(phone));
     } catch (error) {
+      console.log(error);
       return false;
     }
   };
@@ -103,7 +105,7 @@ const ContactForm = () => {
   // };
 
   const validateForm = () => {
-    let formErrors: FormErrors = {};
+    const formErrors: FormErrors = {};
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex
 
     if (!formData.firstName) {
@@ -163,7 +165,7 @@ const ContactForm = () => {
 
       emailjs
         .send(serviceId, templateId, templateParams, publicKey)
-        .then((response) => {
+        .then(() => {
           // console.log("Form Data", templateParams);
           // Reset form data after successful submission
 
@@ -318,11 +320,11 @@ const ContactForm = () => {
           <div className="flex flex-col gap-4 h-full justify-center">
             <div className="flex flex-col gap-1">
               <h3 className="font-[family-name:var(--font-satoshi-bold)] text-white md:text-4xl min-[540px]:text-3xl text-2xl mb-2">
-                Let’s connect today
+                Let&apos;s connect today
               </h3>
               <p className="font-[family-name:var(--font-satoshi)] text-white/80 min-[540px]:text-base text-sm max-w-[410px]">
-                We'd love to hear from you! Please fill out the form below, and
-                we'll get back to you shortly.
+                We&apos;d love to hear from you! Please fill out the form below,
+                and we&apos;ll get back to you shortly.
               </p>
             </div>
 
@@ -474,7 +476,13 @@ const ContactForm = () => {
           </div>
 
           <div className="lg:flex justify-end items-center hidden">
-            <img src="/contactImg.png" alt="" className="w-auto" />
+            <Image
+              src="/contactImg.png"
+              alt=""
+              className="w-auto"
+              width={500}
+              height={600}
+            />
           </div>
         </div>
       </div>

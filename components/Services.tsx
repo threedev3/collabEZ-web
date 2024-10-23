@@ -2,8 +2,8 @@
 import React from "react";
 import { MdArrowOutward } from "react-icons/md";
 import { CardSpotlight } from "./ui/card-spotlight";
-import { motion } from "framer-motion";
 import { serviceItems } from "@/data";
+import Image from "next/image";
 
 export function Services() {
   return (
@@ -41,10 +41,12 @@ export function Services() {
             >
               <div className="relative flex flex-col justify-center space-y-6 text-white z-10 h-full">
                 <div className="w-[60px] h-[60px] bg-[#6F6F71] rounded-full flex justify-center items-center flex-shrink-0">
-                  <img
+                  <Image
                     src={item.icon}
+                    width={33}
+                    height={33}
                     alt={`${item.title} Icon`}
-                    className="h-[33px] w-[33px] object-contain"
+                    className="h-auto w-auto object-contain"
                   />
                 </div>
                 <h3 className="font-[family-name:var(--font-satoshi)] font-bold text-white xl:text-4xl lg:text-[26px] md:text-3xl sm:text-2xl text-2xl  mb-2 mt-2">
@@ -63,7 +65,13 @@ export function Services() {
                   <MdArrowOutward />
                 </div>
               </div>
-              <img src={item.sideImg} className={item.className} />
+              <Image
+                src={item.sideImg}
+                alt=""
+                width={300}
+                height={300}
+                className={item.className}
+              />
             </CardSpotlight>
           ))}
         </div>
