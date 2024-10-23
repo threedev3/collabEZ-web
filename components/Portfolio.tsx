@@ -25,7 +25,7 @@ const Portfolio = () => {
               style={{
                 backgroundImage: `url(${portfolio.bgImage})`,
               }}
-              className="md:h-[560px] h-[320px] col-span-1 lg:w-[90%] w-[100%] aspect-square md:bg-cover bg-cover bg-center bg-no-repeat mb-4 relative group cursor-pointer border border-portfolioBorder/35"
+              className="xl:h-[560px] md:h-[460px] h-[320px] col-span-1 lg:w-[90%] w-[100%] aspect-square xl:bg-cover bg-cover bg-center bg-no-repeat mb-4 relative group cursor-pointer border border-portfolioBorder/35"
             >
               <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 p-4 border-2 border-arrowBorder rounded-full cursor-pointer">
                 <FaArrowRight className="text-arrowBorder " />

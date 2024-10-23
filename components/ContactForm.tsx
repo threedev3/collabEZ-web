@@ -1,11 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import Select, { SingleValue, MultiValue } from "react-select";
+// import Select, { SingleValue, MultiValue } from "react-select";
 import { PhoneNumberUtil } from "google-libphonenumber";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
+import dynamic from "next/dynamic";
+
+const Select = dynamic(() => import("react-select"), { ssr: false });
 
 interface OptionType {
   value: string;

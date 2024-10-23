@@ -10,9 +10,23 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleScroll = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      const navHeight = 80; // Approximate navbar height
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <div className="relative  w-full">
-      <div className="sm:px-10 px-5 sm:py-10 py-5 border-t-2 border-[#63518960] border-b-2">
+    <div className="relative  w-full border-t border-[#63518960]">
+      {/* <div className="sm:px-10 px-5 sm:py-10 py-5 border-t-2 border-[#63518960] border-b-2">
         <div className="absolute -top-40 -left-48 bg-blur-gradient-purple opacity-80 w-[900px] h-[900px]" />
 
         <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-6 lg:gap-6 gap-6 items-start justify-center h-full relative z-[5]">
@@ -20,12 +34,7 @@ const Footer = () => {
             <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-7xl min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[375px]:text-[32px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)]">
               Ready to Get Started?
             </h3>
-            {/* <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none min-[1525px]:mt-8 mt-6 flex-shrink-0">
-            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-white xl:px-8 px-4 py-3 lg:text-lg text-base font-[family-name:var(--font-satoshi)] font-semibold text-black backdrop-blur-3xl flex-shrink-0">
-              Start Your Journey
-            </span>
-          </button> */}
+
             <a className="min-[1525px]:mt-8 mt-4 inline-flex flex-shrink-0 cursor-pointer">
               <MagicButton
                 title="Get a Free Consultation"
@@ -45,8 +54,8 @@ const Footer = () => {
             </p>
           </div>
         </div>
-      </div>
-
+      </div> */}
+      <div className="absolute -top-40 -left-48 bg-blur-gradient-purple opacity-80 w-[700px] h-[700px]" />
       <div className="sm:px-10 px-5 sm:py-10 py-5 relative z-10">
         <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-6 lg:gap-6 gap-6 items-start justify-center h-full relative z-10">
           <div className="grid lg:grid-cols-4 min-[540px]:grid-cols-2 grid-cols-1 min-[540px]:gap-6 gap-8 place-items-start place-content-center w-full">
@@ -73,16 +82,28 @@ const Footer = () => {
                 </h3>
               </div>
               <ul className="flex flex-col gap-3">
-                <li className="text-white font-[family-name:var(--font-satoshi)] min-[540px]:text-base text-sm cursor-pointer">
+                <li
+                  className="text-white font-[family-name:var(--font-satoshi)] min-[540px]:text-base text-sm cursor-pointer"
+                  onClick={() => handleScroll("services")}
+                >
                   Services
                 </li>
-                <li className="text-white font-[family-name:var(--font-satoshi)] min-[540px]:text-base text-sm cursor-pointer">
+                <li
+                  className="text-white font-[family-name:var(--font-satoshi)] min-[540px]:text-base text-sm cursor-pointer"
+                  onClick={() => handleScroll("portfolio")}
+                >
                   Portfolio
                 </li>
-                <li className="text-white font-[family-name:var(--font-satoshi)] min-[540px]:text-base text-sm cursor-pointer">
+                <li
+                  className="text-white font-[family-name:var(--font-satoshi)] min-[540px]:text-base text-sm cursor-pointer"
+                  onClick={() => handleScroll("why-choose")}
+                >
                   Why Collabez
                 </li>
-                <li className="text-white font-[family-name:var(--font-satoshi)] min-[540px]:text-base text-sm cursor-pointer">
+                <li
+                  className="text-white font-[family-name:var(--font-satoshi)] min-[540px]:text-base text-sm cursor-pointer"
+                  onClick={() => handleScroll("reviews")}
+                >
                   Reviews
                 </li>
               </ul>
@@ -115,9 +136,12 @@ const Footer = () => {
                 </h3>
               </div>
               <ul className="flex flex-col gap-3">
-                <li className="text-white font-[family-name:var(--font-satoshi)] min-[540px]:text-base text-sm cursor-pointer">
+                <a
+                  className="text-white font-[family-name:var(--font-satoshi)] min-[540px]:text-base text-sm cursor-pointer"
+                  href="mailto:hello@collabez.ae"
+                >
                   hello@collabez.co.uk
-                </li>
+                </a>
                 <li className="text-white font-[family-name:var(--font-satoshi)] min-[540px]:text-base text-sm">
                   +1 845 631 78 49
                 </li>

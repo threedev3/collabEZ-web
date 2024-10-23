@@ -39,31 +39,6 @@ export function Services() {
                   : "col-span-1"
               } relative bg-gradient-to-t from-[#111] serviceBorder to-[#1a1a1a] p-6 shadow-md hover:shadow-lg transition-shadow duration-300 group overflow-hidden max-h-96 flex justify-between items-center gap-4`}
             >
-              {/* Gradient Border Animation */}
-              {/* <motion.div
-                initial={{ backgroundPosition: "0% 0%" }}
-                animate={{ backgroundPosition: "200% 200%" }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                className="absolute inset-0 rounded-3xl border-[2px] border-transparent bg-gradient-to-r from-[#5B3CCC] to-[#000000] bg-clip-border"
-                style={{
-                  backgroundSize: "400% 400%",
-                }}
-              ></motion.div> */}
-              {/* Background */}
-              {/* <div
-                className={item.className}
-                style={{
-                  backgroundImage: `url(${item.sideImg})`,
-                }}
-              /> */}
-              {/* Overlay */}
-              {/* <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-900/50 to-blue-900/50 group-hover:opacity-75 transition-opacity duration-300"></div> */}
-
-              {/* Content */}
               <div className="relative flex flex-col justify-center space-y-6 text-white z-10 h-full">
                 <div className="w-[60px] h-[60px] bg-[#6F6F71] rounded-full flex justify-center items-center flex-shrink-0">
                   <img

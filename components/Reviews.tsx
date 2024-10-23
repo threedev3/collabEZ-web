@@ -41,7 +41,7 @@ const Reviews = () => {
   };
   return (
     <div className="relative sm:px-10 px-5 sm:py-10 py-5 w-full " id="reviews">
-      <div className="absolute top-0 -left-48 bg-blur-gradient md:w-[700px] md:h-[700px] w-[300px] h-[300px] -z-0" />
+      <div className="absolute top-0 -left-48 bg-blur-gradient lg:w-[700px] lg:h-[700px] w-[400px] h-[400px] -z-0" />
       <div className="bg-[url('/reviewsBg.png')] bg-no-repeat bg-contain bg-right absolute right-0 top-40 bottom-0 lg:w-[500px] w-[400px]" />
 
       <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-8 lg:gap-6 gap-6 items-start justify-center h-full">

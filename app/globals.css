@@ -16,6 +16,9 @@
   font-weight: normal; /* or specific weight */
   font-style: normal; /* or italic */
 }
+html {
+  scroll-behavior: smooth;
+}
 
 .font-satoshi {
   font-family: "satoshi";

@@ -1,3 +1,4 @@
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 import Choose from "@/components/Choose";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
@@ -18,16 +19,35 @@ export default function Home() {
       <Toaster position="bottom-center" />
       <div className="absolute inset-0 bg-black opacity-40"></div>
       <div className="relative z-20 w-full">
+        {/* <AnimateOnScroll> */}
         <Hero />
+        {/* </AnimateOnScroll> */}
         <div className="relative z-20">
-          <TechSlider />
-          <Services />
-          <Choose />
-          <Portfolio />
-          <Reviews />
-          <Process />
-          <ContactForm />
-          <Footer />
+          <AnimateOnScroll>
+            <TechSlider />
+          </AnimateOnScroll>
+          <AnimateOnScroll>
+            <Services />
+          </AnimateOnScroll>
+          <AnimateOnScroll>
+            <Choose />
+          </AnimateOnScroll>
+          <AnimateOnScroll>
+            <Portfolio />
+          </AnimateOnScroll>
+          <AnimateOnScroll>
+            <Reviews />
+          </AnimateOnScroll>
+          <AnimateOnScroll>
+            <Process />
+          </AnimateOnScroll>
+          <AnimateOnScroll>
+            <ContactForm />
+          </AnimateOnScroll>
+          <AnimateOnScroll>
+            <Footer />
+          </AnimateOnScroll>
+
           <ScrollToTop />
         </div>
       </div>

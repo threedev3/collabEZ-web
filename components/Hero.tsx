@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Navbar from "./Navbar";
 import { CardSpotlight } from "./ui/card-spotlight";
@@ -7,8 +8,22 @@ import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "./MagicButton";
 
 const Hero = () => {
+  const handleScroll = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      const navHeight = 80; // Approximate navbar height
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <section className="min-h-screen relative z-30">
+    <section className="min-h-screen relative z-30" id="home">
       <div
         className="bg-[url('/heroBg.png')] bg-no-repeat  bg-cover bg-center w-full relative z-30"
         // id="home"
@@ -62,6 +77,7 @@ const Hero = () => {
                   // icon={<FaLocationArrow />}
                   position="right"
                   otherClasses="font-[family-name:var(--font-satoshi)]"
+                  handleClick={() => handleScroll("services")}
                 />
               </a>
             </div>

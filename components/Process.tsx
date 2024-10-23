@@ -4,49 +4,16 @@ import { motion } from "framer-motion";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { processSteps } from "@/data";
+import { useInView } from "react-intersection-observer";
 
 const Process = () => {
-  const processSteps = [
-    {
-      number: "01",
-      title: "Discovery",
-      description:
-        "We start with a detailed discussion to understand your needs, goals, and vision.",
-    },
-    {
-      number: "02",
-      title: "Research & Planning",
-      description:
-        "Our team conducts thorough research and creates a comprehensive project plan.",
-    },
-    {
-      number: "03",
-      title: "Design",
-      description:
-        "We create intuitive and visually appealing designs tailored to your brand.",
-    },
-    {
-      number: "04",
-      title: "Development",
-      description:
-        "Our skilled developers bring the designs to life with clean, efficient code.",
-    },
-    {
-      number: "05",
-      title: "Testing & Refinement",
-      description:
-        "Rigorous testing ensures a bug-free, high-performance final product.",
-    },
-    {
-      number: "06",
-      title: "Launch & Support",
-      description:
-        "We assist with deployment and provide ongoing support to ensure your success.",
-    },
-  ];
-
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
+  const { ref, inView } = useInView({
+    threshold: 0.4, // Adjust based on how much of the component should be visible to trigger the animation
+    triggerOnce: true, // Animation only triggers once
+  });
 
   useEffect(() => {
     const handleResize = () => {
@@ -66,7 +33,7 @@ const Process = () => {
   }, []);
 
   const sliderSettings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -82,13 +49,13 @@ const Process = () => {
       key={step.number}
       className="flex flex-col items-center text-center relative"
       initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.5, delay: index * 0.2 }}
     >
       <motion.div
         className="relative w-40 h-40 mb-4"
         initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
+        animate={inView ? { scale: 1 } : { scale: 0 }}
         transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
       >
         <svg className="w-full h-full" viewBox="0 0 100 100">
@@ -178,7 +145,11 @@ const Process = () => {
   );
 
   return (
-    <div className="relative sm:px-10 px-5 sm:py-10 py-5 w-full " id="process">
+    <div
+      className="relative sm:px-10 px-5 sm:py-10 py-5 w-full "
+      id="process"
+      ref={ref}
+    >
       <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-8 lg:gap-6 gap-6 items-start justify-center h-full">
         <div className="flex  min-[806px]:gap-6 gap-0 items-start justify-between w-full">
           <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-full min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[375px]:text-[32px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)] text-center mx-auto">
