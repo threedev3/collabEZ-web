@@ -158,34 +158,33 @@ const ContactForm = () => {
         projectTimeline: projectTimelineValue,
       };
 
-      // emailjs
-      //   .send(serviceId, templateId, templateParams, publicKey)
-      //   .then((response) => {
-      // console.log("Form Data", templateParams);
-      // Reset form data after successful submission
+      emailjs
+        .send(serviceId, templateId, templateParams, publicKey)
+        .then((response) => {
+          // console.log("Form Data", templateParams);
+          // Reset form data after successful submission
 
-      console.log("Form Data", templateParams);
-      toast.success("Request submitted. We'll be in touch soon.");
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        company: "",
-        projectType: null,
-        projectBudget: null,
-        projectTimeline: null,
-      });
-      setIsSubmitting(false);
-
-      // })
-      // .catch((error) => {
-      //   console.log("FAILED..", error);
-      //   toast.error("Something Went Wrong!");
-      // })
-      // .finally(() => {
-      //   setIsSubmitting(false);
-      // });
+          // console.log("Form Data", templateParams);
+          toast.success("Request submitted. We'll be in touch soon.");
+          setFormData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            company: "",
+            projectType: null,
+            projectBudget: null,
+            projectTimeline: null,
+          });
+          setIsSubmitting(false);
+        })
+        .catch((error) => {
+          console.log("FAILED..", error);
+          toast.error("Something Went Wrong!");
+        })
+        .finally(() => {
+          setIsSubmitting(false);
+        });
     }
   };
 
