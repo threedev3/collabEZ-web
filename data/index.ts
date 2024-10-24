@@ -107,23 +107,27 @@ export const chooseItems = [
 export const portfolioItems = [
   {
     bgImage: "portfolio1.png",
-    title: "Tuition Highway",
-    category: "Mobile App",
+    title: "World On Board",
+    category: "Web Development",
+    link: "https://worldonboard.com/",
   },
   {
     bgImage: "portfolio2.png",
     title: "Stellar Online School",
     category: "Web Development",
+    link: "https://stellaronlineschool.co.uk/",
   },
   {
     bgImage: "portfolio3.png",
     title: "Collab Dash",
-    category: "UI Design",
+    category: "Web Development",
+    link: "https://collabdash.io/",
   },
   {
     bgImage: "portfolio4.png",
     title: "Tuition Highway",
-    category: "App Design",
+    category: "App Development",
+    link: "https://tuitionhighway.com/",
   },
 ];
 

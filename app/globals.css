@@ -47,7 +47,6 @@ html {
 
 .serviceBorder {
   position: relative;
-  border-radius: 24px; /* Match the card's border-radius */
   z-index: 1; /* Ensure the card content is above the animated border */
 }
 
@@ -60,7 +59,6 @@ html {
   bottom: 0;
   border: 3px solid transparent; /* Space for the border */
   border-image: linear-gradient(90deg, #5b3ccc90, transparent) 1;
-  border-radius: 24px; /* Match the card's border-radius */
   animation: moveBorder 6s linear infinite;
   pointer-events: none; /* Ensure the border does not interfere with interactions */
   z-index: -1; /* Ensure the border is below the card's content */

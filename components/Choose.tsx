@@ -61,13 +61,13 @@ const Choose = () => {
   };
   return (
     <div className="relative " id="why-choose">
-      <div className="sm:px-10 px-5 sm:py-10 py-5 w-full mt-32">
-        <div className="absolute top-20 -left-48 bg-blur-gradient-purple  lg:w-[700px] lg:h-[700px] w-[400px] h-[400px]" />
+      <div className="sm:px-10 px-5 sm:py-10 py-5 w-full mt-40">
+        <div className="absolute top-20 -left-48 bg-blur-gradient-purple  lg:w-[700px] lg:h-[700px] sm:w-[400px] sm:h-[400px] w-[400px] h-[400px]" />
 
         <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-8 lg:gap-6 gap-6 items-start justify-center h-full">
           <div className="flex  min-[806px]:gap-6 gap-0 items-start justify-between w-full">
-            <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-full min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[375px]:text-[32px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)] text-center mx-auto">
-              Why Choose <span className="block ">Collabez</span>
+            <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-full min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[375px]:text-[32px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)] text-center mx-auto ">
+              Here’s Why We’re Different
             </h3>
           </div>
 
@@ -151,8 +151,8 @@ const Choose = () => {
         </div>
       </div>
 
-      <div className="sm:px-10 px-5 sm:py-10 py-5 border-t-2 border-[#63518960] border-b-2 mt-6">
-        <div className="absolute -top-40 -left-48 bg-blur-gradient-purple opacity-80 w-[900px] h-[900px]" />
+      <div className="sm:px-10 px-5 sm:py-10 py-5 border-t-2 border-[#63518960] border-b-2 mt-6 relative">
+        <div className="absolute -top-32 -left-48 bg-blur-gradient-purple opacity-80 w-[500px] h-[500px]" />
 
         <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-6 lg:gap-6 gap-6 items-start justify-center h-full relative z-[5]">
           <div className="flex min-[806px]:flex-row flex-col min-[806px]:gap-6 gap-0 items-start justify-between w-full">

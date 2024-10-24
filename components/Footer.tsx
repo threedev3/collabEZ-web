@@ -142,13 +142,13 @@ const Footer = () => {
                   className="text-white font-[family-name:var(--font-satoshi)] min-[540px]:text-base text-sm cursor-pointer"
                   href="mailto:hello@collabez.ae"
                 >
-                  hello@collabez.co.uk
+                  hello@collabez.ae
                 </a>
                 <li className="text-white font-[family-name:var(--font-satoshi)] min-[540px]:text-base text-sm">
-                  +1 845 631 78 49
+                  +97142206029
                 </li>
                 <li className="text-white font-[family-name:var(--font-satoshi)] min-[540px]:text-base text-sm">
-                  20-22, Wenlock Road, N1 7GU, London, UK
+                  SPC Freezone, Sharjah, UAE
                 </li>
               </ul>
             </div>

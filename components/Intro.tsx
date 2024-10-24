@@ -14,20 +14,20 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-const ReactIcon: React.FC = () => <FaReact size={110} color="#61DBFB" />;
-const NextIcon: React.FC = () => <RiNextjsLine size={110} color="#ffffff" />;
-const NodejsIcon: React.FC = () => <FaNode size={110} color="#339933" />;
-const MongoDBIcon: React.FC = () => <SiMongodb size={110} color="#4DB33D" />;
-const ExpressIcon: React.FC = () => <SiExpress size={110} color="#ffffff" />;
+const ReactIcon: React.FC = () => <FaReact size={90} color="#61DBFB" />;
+const NextIcon: React.FC = () => <RiNextjsLine size={90} color="#ffffff" />;
+const NodejsIcon: React.FC = () => <FaNode size={90} color="#339933" />;
+const MongoDBIcon: React.FC = () => <SiMongodb size={90} color="#4DB33D" />;
+const ExpressIcon: React.FC = () => <SiExpress size={90} color="#ffffff" />;
 const WordPressIcon: React.FC = () => (
   <FaWordpress size={110} color="#21759B" />
 );
-const ShopifyIcon: React.FC = () => <FaShopify size={110} color="#96bf48" />;
-const FigmaIcon: React.FC = () => <FaFigma size={110} color="#cdcdcd" />;
+const ShopifyIcon: React.FC = () => <FaShopify size={90} color="#96bf48" />;
+const FigmaIcon: React.FC = () => <FaFigma size={90} color="#cdcdcd" />;
 const PhotoshopIcon: React.FC = () => (
-  <SiAdobephotoshop size={110} color="#0e4d7c" />
+  <SiAdobephotoshop size={90} color="#0e4d7c" />
 );
-const AWSIcon: React.FC = () => <FaAws size={110} color="#FF9900" />;
+const AWSIcon: React.FC = () => <FaAws size={90} color="#FF9900" />;
 
 const icons = [
   ReactIcon,
@@ -81,12 +81,13 @@ const TechSlider = () => {
       <div className="max-w-[93%] w-full mx-auto flex flex-col gap-12">
         <div className="flex flex-col gap-6 items-start justify-between w-full">
           <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-7xl min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[375px]:text-[32px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)]">
-            Our Tech Stack
+            Technologies We Work With
           </h3>
 
           <div>
             <p className="font-[family-name:var(--font-satoshi)] text-white lg:text-xl sm:text-lg text-base relative z-10">
-              Our stack ensures high performance and scalability
+              We leverage the latest technologies and frameworks to build
+              high-performing, scalable, and secure digital solutions.
             </p>
           </div>
         </div>
@@ -98,6 +99,8 @@ const TechSlider = () => {
             </div>
           ))}
         </Slider>
+
+        <div className="h-[1px] w-full bg-white/20 mt-3"></div>
       </div>
     </div>
   );

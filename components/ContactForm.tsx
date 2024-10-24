@@ -322,21 +322,24 @@ const ContactForm = () => {
   return (
     <div className="relative sm:px-10 px-5 sm:py-10 py-5 w-full " id="contact">
       <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-8 lg:gap-6 gap-6 items-start justify-center h-full">
-        <div className="flex  min-[806px]:gap-6 gap-0 items-start justify-between w-full">
+        <div className="flex  min-[806px]:gap-6 gap-0 items-start justify-between w-full ">
           <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-full min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[375px]:text-[32px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)] text-center mx-auto">
-            Contact Us Today
+            Let’s Discuss Your Ideas
           </h3>
         </div>
 
         <div className="bg-gradient-to-r from-[#854CFF10] via-contactFormBg to-contactFormBg  w-full rounded-xl relative z-10 md:py-10 py-5 md:px-10 px-5 grid lg:grid-cols-2 grid-cols-1 gap-4">
-          <div className="flex flex-col gap-4 h-full justify-center">
-            <div className="flex flex-col gap-1">
-              <h3 className="font-[family-name:var(--font-satoshi-bold)] text-white md:text-4xl min-[540px]:text-3xl text-2xl mb-2">
+          <div className="flex flex-col gap-4 h-full justify-start">
+            <div className="flex flex-col gap-1 mb-6">
+              {/* <h3 className="font-[family-name:var(--font-satoshi-bold)] text-white md:text-4xl min-[540px]:text-3xl text-2xl mb-2">
                 Let&apos;s connect today
               </h3>
               <p className="font-[family-name:var(--font-satoshi)] text-white/80 min-[540px]:text-base text-sm max-w-[410px]">
                 We&apos;d love to hear from you! Please fill out the form below,
                 and we&apos;ll get back to you shortly.
+              </p> */}
+              <p className="font-[family-name:var(--font-satoshi)] text-white/80 min-[540px]:text-lg text-sm max-w-[410px]">
+                Share your project details and let’s get started.
               </p>
             </div>
 
@@ -487,13 +490,13 @@ const ContactForm = () => {
             </form>
           </div>
 
-          <div className="lg:flex justify-end items-center hidden">
+          <div className="lg:flex justify-center items-center hidden">
             <Image
               src="/contactImg.png"
               alt=""
-              className="w-auto"
-              width={500}
-              height={600}
+              className=""
+              width={550}
+              height={550}
             />
           </div>
         </div>

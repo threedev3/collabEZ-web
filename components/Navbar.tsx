@@ -6,6 +6,7 @@ import { FaBars } from "react-icons/fa6";
 import { IoCloseSharp } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import MagicButton from "./MagicButton";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,7 +61,7 @@ const Navbar = () => {
             width={160}
             height={100}
             alt="collabez-logo"
-            className="cursor-pointer w-[220px]"
+            className="cursor-pointer w-[180px]"
           />
         </div>
 
@@ -84,12 +85,22 @@ const Navbar = () => {
         </div>
 
         <div className="lg:flex lg:items-center xl:gap-6 gap-4 hidden">
-          <button
-            className="min-[1400px]:py-2 xl:py-1.5 py-1.5 min-[1400px]:px-10 xl:px-4 px-4 bg-white  rounded-full text-black font-semibold font-[family-name:var(--font-satoshi)] transition-all duration-300 xl:text-base text-sm"
+          {/* <button
+            className="min-[1400px]:py-2 xl:py-1.5 py-1.5 min-[1400px]:px-10 xl:px-4 px-4 bg-white  rounded-xl text-black font-semibold font-[family-name:var(--font-satoshi)] transition-all duration-300 xl:text-base text-sm"
             onClick={() => handleScroll("contact")}
           >
             Contact Us
-          </button>
+          </button> */}
+
+          <a className="relative z-20 cursor-pointer">
+            <MagicButton
+              title="Get A Quote"
+              // icon={<FaLocationArrow />}
+              position="right"
+              otherClasses="font-[family-name:var(--font-satoshi)] w-32 "
+              handleClick={() => handleScroll("contact")}
+            />
+          </a>
         </div>
 
         <div
@@ -148,14 +159,24 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <motion.button
+              {/* <motion.button
                 className="py-3 px-8 bg-white text-black rounded-full font-bold text-lg shadow-lg font-[family-name:var(--font-satoshi)]"
                 onClick={() => handleScroll("contact")}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Contact Us
-              </motion.button>
+              </motion.button> */}
+
+              <a className="relative z-20 cursor-pointer mt-4">
+                <MagicButton
+                  title="Get A Quote"
+                  // icon={<FaLocationArrow />}
+                  position="right"
+                  otherClasses="font-[family-name:var(--font-satoshi)] w-48 "
+                  handleClick={() => handleScroll("contact")}
+                />
+              </a>
             </motion.div>
           </motion.div>
         )}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 
 import "./globals.css";
 import { ThemeProvider } from "./provider";
@@ -29,6 +30,25 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.png" sizes="any" />
+
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-SNJ9FJ8VQT"
+        />
+
+        {/* Initialize Google Analytics */}
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-SNJ9FJ8VQT');
+            `,
+          }}
+        />
       </head>
       <body className={`${satoshiRegular.variable} ${satoshiBold.variable}`}>
         <ThemeProvider

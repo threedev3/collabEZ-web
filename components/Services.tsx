@@ -4,33 +4,58 @@ import { MdArrowOutward } from "react-icons/md";
 import { CardSpotlight } from "./ui/card-spotlight";
 import { serviceItems } from "@/data";
 import Image from "next/image";
+import MagicButton from "./MagicButton";
 
 export function Services() {
+  const handleScroll = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      const navHeight = 80; // Approximate navbar height
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
-    <div className="relative sm:px-10 px-5 sm:py-10 py-5 w-full" id="services">
+    <div className="relative sm:px-10 px-5 sm:py-6 py-5 w-full" id="services">
       <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-6 lg:gap-6 gap-6 items-start justify-center h-full">
         <div className="flex  min-[806px]:gap-6 gap-0 items-start justify-between w-full">
           <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-7xl min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[375px]:text-[32px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)]">
-            Let’s work together
+            Explore Our Services
           </h3>
         </div>
         <div className="flex min-[806px]:flex-row flex-col justify-between gap-6 w-full min-[806px]:items-center items-start">
-          <p className="font-[family-name:var(--font-satoshi)] text-white lg:text-lg sm:text-base text-base relative z-10 max-w-lg">
-            help you to build website company that is modern, user friendly,
-            good CEO, and Clean design
+          <p className="font-[family-name:var(--font-satoshi)] text-white lg:text-xl sm:text-base text-base relative z-10 max-w-full">
+            From websites to mobile apps and e-commerce solutions, we offer
+            tailored digital services to help your business thrive!
           </p>
-          <button className="relative inline-flex h-12 overflow-hidden rounded-lg p-[3px] focus:outline-none  flex-shrink-0">
-            {/* <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" /> */}
-            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-heroColor xl:px-8 px-4 py-3 lg:text-lg text-base font-[family-name:var(--font-satoshi)] font-semibold text-white backdrop-blur-3xl flex-shrink-0">
-              Get Started
-              {/* <FaLocationArrow className="ml-3 mt-1.5 xl:block hidden" /> */}
-            </span>
-          </button>
+          {/* <button className="relative inline-flex h-12 overflow-hidden rounded-lg p-[3px] focus:outline-none  flex-shrink-0"> */}
+          {/* <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" /> */}
+          {/* <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-heroColor xl:px-8 px-4 py-3 lg:text-lg text-base font-[family-name:var(--font-satoshi)] font-semibold text-white backdrop-blur-3xl flex-shrink-0"> */}
+          {/* Get Started */}
+          {/* <FaLocationArrow className="ml-3 mt-1.5 xl:block hidden" /> */}
+          {/* </span> */}
+          {/* </button> */}
+
+          <a className="relative z-20 cursor-pointer">
+            <MagicButton
+              title="Get Started"
+              // icon={<FaLocationArrow />}
+              position="right"
+              otherClasses="font-[family-name:var(--font-satoshi)]"
+              handleClick={() => handleScroll("contact")}
+            />
+          </a>
         </div>
 
         {/* Grid for the services */}
         <div className="grid lg:grid-cols-2 flex-wrap  gap-6 w-full mt-6">
           {serviceItems.map((item, index) => (
+            // <CardSpotlight>
             <CardSpotlight
               key={index}
               className={`${
@@ -55,13 +80,13 @@ export function Services() {
                 <p className="font-[family-name:var(--font-satoshi)] font-normal text-white xl:text-lg text-base mb-4 max-w-[380px]">
                   {item.description}
                 </p>
-                <div className="flex gap-2 items-start">
-                  <a
-                    href=""
-                    className="font-[family-name:var(--font-satoshi)] underline"
-                  >
+                <div
+                  className="flex gap-2 items-start cursor-pointer"
+                  onClick={() => handleScroll("contact")}
+                >
+                  <li className="font-[family-name:var(--font-satoshi)] underline list-none">
                     Start With Us
-                  </a>
+                  </li>
                   <MdArrowOutward />
                 </div>
               </div>
@@ -73,6 +98,7 @@ export function Services() {
                 className={item.className}
               />
             </CardSpotlight>
+            // </CardSpotlight>
           ))}
         </div>
       </div>
