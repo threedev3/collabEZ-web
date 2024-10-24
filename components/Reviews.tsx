@@ -33,7 +33,7 @@ const Reviews = () => {
         },
       },
       {
-        breakpoint: 850,
+        breakpoint: 808,
         settings: {
           slidesToShow: 1,
         },
@@ -60,7 +60,7 @@ const Reviews = () => {
         <Slider {...settings} className="w-full relative z-20">
           {reviewItems.map((reviewItem, index) => (
             <div className="mx-auto" key={index}>
-              <div className="bg-reviewCard/40 min-[1426px]:max-w-[460px] xl:max-w-[350px] max-w-full  backdrop-blur-sm review-border flex flex-col gap-8 p-6 mx-3 cursor-pointer">
+              <div className="bg-reviewCard/40 min-[1426px]:max-w-[460px] xl:max-w-[350px] max-w-full min-[808px]:min-h-[250px] min-[414px]:min-h-[220px] min-h-[300px] backdrop-blur-sm review-border flex flex-col gap-8 p-6 mx-3 cursor-pointer">
                 <div className="flex flex-row justify-between items-center">
                   <div className="flex flex-row items-center gap-3">
                     <div>
@@ -88,7 +88,7 @@ const Reviews = () => {
                 </div>
 
                 <div>
-                  <p className="font-[family-name:var(--font-satoshi)] text-white text-base max-w-[350px]">
+                  <p className="font-[family-name:var(--font-satoshi)] text-white text-base min-[808px]:max-w-[370px] max-w-full">
                     {reviewItem.review}
                   </p>
                 </div>

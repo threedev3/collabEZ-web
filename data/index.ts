@@ -130,44 +130,44 @@ export const portfolioItems = [
 export const reviewItems = [
   {
     avatar: "/avatar1.png",
-    name: "Jonathan Doe",
-    tagLine: "Lorem Ipsum",
+    name: "Ahmed M.",
+    tagLine: "Dubai",
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+      "CollabEZ exceeded our expectations with exceptional web development. The site looks amazing and works flawlessly. The entire process was seamless. We highly recommend their team for any project!",
   },
-  {
-    avatar: "/avatar2.png",
-    name: "Jonathan Doe",
-    tagLine: "Lorem Ipsum",
-    review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
-  },
+  // {
+  //   avatar: "/avatar2.png",
+  //   name: "Jonathan Doe",
+  //   tagLine: "Lorem Ipsum",
+  //   review:
+  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+  // },
   {
     avatar: "/avatar3.png",
-    name: "Jonathan Doe",
-    tagLine: "Lorem Ipsum",
+    name: "Fatima S.",
+    tagLine: "Abu Dhabi",
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+      "Working with CollabEZ was a seamless experience. Their team understood our needs perfectly and delivered a website that not only looks great but also performs exceptionally well. Highly recommended!",
   },
   {
     avatar: "/avatar4.png",
-    name: "Jonathan Doe",
-    tagLine: "Lorem Ipsum",
+    name: "Khalid A.",
+    tagLine: "Riyadh",
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+      "CollabEZ transformed our online presence with a fantastic website. It improved customer engagement and boosted sales. Their support was excellent. Highly recommend their services!",
   },
-  {
-    avatar: "/avatar5.png",
-    name: "Jonathan Doe",
-    tagLine: "Lorem Ipsum",
-    review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
-  },
-  {
-    avatar: "/avatar6.png",
-    name: "Jonathan Doe",
-    tagLine: "Lorem Ipsum",
-    review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
-  },
+  // {
+  //   avatar: "/avatar5.png",
+  //   name: "Jonathan Doe",
+  //   tagLine: "Lorem Ipsum",
+  //   review:
+  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+  // },
+  // {
+  //   avatar: "/avatar6.png",
+  //   name: "Jonathan Doe",
+  //   tagLine: "Lorem Ipsum",
+  //   review:
+  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+  // },
 ];
