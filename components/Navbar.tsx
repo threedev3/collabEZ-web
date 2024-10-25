@@ -7,27 +7,21 @@ import { IoCloseSharp } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import MagicButton from "./MagicButton";
+import { scrollToSection } from "@/lib/scrollToSection";
 
-const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+interface NavbarProps {
+  isMenuOpen: boolean;
+  setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen }) => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     document.body.style.overflow = isMenuOpen ? "auto" : "hidden";
   };
 
   const handleScroll = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      const navHeight = 80; // Approximate navbar height
-      const elementPosition = section.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - navHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
+    scrollToSection(id);
     setIsMenuOpen(false);
   };
 
@@ -58,10 +52,10 @@ const Navbar = () => {
         <div>
           <Image
             src="/logo.png"
-            width={160}
+            width={180}
             height={100}
             alt="collabez-logo"
-            className="cursor-pointer w-[180px]"
+            className="cursor-pointer object-contain"
           />
         </div>
 
@@ -80,31 +74,23 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        <div className="sm:block hidden absolute top-0 z-50">
+        <div className="sm:block hidden absolute top-0 z-[10000]">
           <FloatingNav navItems={navItems} />
         </div>
 
         <div className="lg:flex lg:items-center xl:gap-6 gap-4 hidden">
-          {/* <button
-            className="min-[1400px]:py-2 xl:py-1.5 py-1.5 min-[1400px]:px-10 xl:px-4 px-4 bg-white  rounded-xl text-black font-semibold font-[family-name:var(--font-satoshi)] transition-all duration-300 xl:text-base text-sm"
-            onClick={() => handleScroll("contact")}
-          >
-            Contact Us
-          </button> */}
-
           <a className="relative z-20 cursor-pointer">
             <MagicButton
               title="Get A Quote"
-              // icon={<FaLocationArrow />}
               position="right"
               otherClasses="font-[family-name:var(--font-satoshi)] w-32 "
-              handleClick={() => handleScroll("contact")}
+              handleClick={() => scrollToSection("contact")}
             />
           </a>
         </div>
 
         <div
-          className="lg:hidden block w-10 h-8 cursor-pointer z-50 relative"
+          className="lg:hidden block w-10 h-8 cursor-pointer z-[11000] relative"
           onClick={toggleMenu}
         >
           <FaBars
@@ -131,7 +117,9 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-black bg-opacity-95 flex flex-col gap-6 items-center justify-center"
+            className={`fixed inset-0 ${
+              isMenuOpen ? "z-[10000]" : "z-0"
+            } bg-black bg-opacity-95 flex flex-col gap-6 items-center justify-center`}
           >
             <motion.nav
               initial="closed"
@@ -144,7 +132,7 @@ const Navbar = () => {
                   <motion.li key={index} variants={itemVariants}>
                     <button
                       onClick={() => handleScroll(item.id)}
-                      className="text-white text-4xl font-bold hover:text-yellow-300 transition-colors duration-300 font-[family-name:var(--font-satoshi)]"
+                      className="text-white text-4xl font-bold hover:text-heroColor transition-colors duration-300 font-[family-name:var(--font-satoshi)]"
                     >
                       {item.name}
                     </button>
@@ -159,15 +147,6 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              {/* <motion.button
-                className="py-3 px-8 bg-white text-black rounded-full font-bold text-lg shadow-lg font-[family-name:var(--font-satoshi)]"
-                onClick={() => handleScroll("contact")}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Contact Us
-              </motion.button> */}
-
               <a className="relative z-20 cursor-pointer mt-4">
                 <MagicButton
                   title="Get A Quote"

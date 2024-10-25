@@ -18,9 +18,7 @@ export default function Home() {
       <Toaster position="bottom-center" />
       <div className="absolute inset-0 bg-black opacity-40"></div>
       <div className="relative z-20 w-full">
-        {/* <AnimateOnScroll> */}
         <Hero />
-        {/* </AnimateOnScroll> */}
         <div className="relative z-20">
           <AnimateOnScroll>
             <TechSlider />

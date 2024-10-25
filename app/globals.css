@@ -1,20 +1,20 @@
 @font-face {
   font-family: "satoshi";
   src: url("/public/fonts/Satoshi-Regular.otf") format("opentype");
-  font-weight: normal; /* or specific weight */
-  font-style: normal; /* or italic */
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
   font-family: "satoshi-bold";
   src: url("/public/fonts/Satoshi-Bold.otf") format("opentype");
-  font-weight: normal; /* or specific weight */
-  font-style: normal; /* or italic */
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
   font-family: "outfit";
   src: url("/public/fonts/Outfit-Regular.ttf");
-  font-weight: normal; /* or specific weight */
-  font-style: normal; /* or italic */
+  font-weight: normal;
+  font-style: normal;
 }
 html {
   scroll-behavior: smooth;
@@ -47,7 +47,7 @@ html {
 
 .serviceBorder {
   position: relative;
-  z-index: 1; /* Ensure the card content is above the animated border */
+  z-index: 1;
 }
 
 .serviceBorder::before {
@@ -57,19 +57,19 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  border: 3px solid transparent; /* Space for the border */
+  border: 3px solid transparent;
   border-image: linear-gradient(90deg, #5b3ccc90, transparent) 1;
   animation: moveBorder 6s linear infinite;
-  pointer-events: none; /* Ensure the border does not interfere with interactions */
-  z-index: -1; /* Ensure the border is below the card's content */
+  pointer-events: none;
+  z-index: -1;
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
-/* Hide scrollbar for IE, Edge and Firefox */
+
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 @keyframes marquee-ltr {
   0% {
@@ -100,32 +100,20 @@ html {
 .gradient-border {
   position: relative;
   border-radius: 50%;
-  /* transition: background 0.4s ease, border-color 0.4s ease; */
 }
 
 .gradient-border::before {
   content: "";
   position: absolute;
-  inset: 0; /* Full cover */
+  inset: 0;
   border-radius: 50%;
-  padding: 2px; /* Adjust this to create space for the border */
+  padding: 2px;
   background: linear-gradient(90deg, #bf8f28, #000000);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
   animation: rotateBorder 4s linear infinite;
-  /* transition: opacity 0.4s ease; */
 }
-
-/* .gradient-border:hover::before {
-  opacity: 0;
-} */
-
-/* .gradient-border:hover {
-  background-image: linear-gradient(to bottom, #ffb71c, #5b218d, #261549);
-  padding: 22px;
-  border: 2px solid #ffffff60;
-} */
 
 @keyframes rotateBorder {
   0% {
@@ -138,7 +126,6 @@ html {
 
 .review-border {
   position: relative;
-  /* border-radius: 24px !important;  */
   z-index: 1;
 }
 
@@ -149,11 +136,10 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  border: 1px solid transparent; /* Space for the border */
+  border: 1px solid transparent;
   border-image: linear-gradient(90deg, #ffffff80, transparent) 1;
-  /* border-radius: 24px !important;  */
   animation: moveReviewBorder 4s linear infinite;
-  pointer-events: none; /* Ensure the border does not interfere with interactions */
+  pointer-events: none;
   z-index: -1;
 }
 
@@ -195,8 +181,8 @@ html {
 }
 
 .react-international-phone-input-container:focus {
-  outline: none; /* focus:outline-none */
-  box-shadow: none; /* focus:ring-0 focus:ring-none */
+  outline: none;
+  box-shadow: none;
   width: "100%";
 }
 
@@ -205,22 +191,22 @@ html {
   color: #ffffff !important;
 }
 .react-international-phone-country-selector-dropdown::-webkit-scrollbar {
-  width: 6px; /* Width of the scrollbar */
+  width: 6px;
 }
 
 .react-international-phone-country-selector-dropdown::-webkit-scrollbar-track {
-  background: #272727; /* Background of the scrollbar track */
+  background: #272727;
   border-radius: 6px;
   margin-right: 0;
 }
 
 .react-international-phone-country-selector-dropdown::-webkit-scrollbar-thumb {
-  background: #888888; /* Color of the scrollbar thumb */
+  background: #888888;
   border-radius: 6px;
 }
 
 .react-international-phone-country-selector-dropdown::-webkit-scrollbar-thumb:hover {
-  background: #555555; /* Color of the scrollbar thumb on hover */
+  background: #555555;
 }
 .react-international-phone-country-selector-dropdown__list-item-country-name {
   font-size: 16px !important;
@@ -233,92 +219,6 @@ html {
   background-color: rgb(0 0 0 / 0.6) !important;
   color: #ffffff !important;
 }
-
-/* * {
-  font-family: "satoshi";
-} */
-
-/* @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-  }
-} */
-
-/* @layer base {
-  * {
-    @apply border-border !scroll-smooth;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-  button {
-    @apply active:outline-none;
-  }
-} */
-
-/* @layer utilities {
-  .heading {
-    @apply font-bold text-4xl md:text-5xl text-center;
-  }
-} */
 
 @tailwind base;
 @tailwind components;

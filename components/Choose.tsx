@@ -6,25 +6,24 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MagicButton from "./MagicButton";
 import Image from "next/image";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 const Choose = () => {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
-  // Effect to handle window resize
   useEffect(() => {
     const handleResize = () => {
-      setIsLargeScreen(window.innerWidth >= 1024); // Set the breakpoint here (768px)
+      setIsLargeScreen(window.innerWidth >= 1024);
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); // Call on mount to set initial value
+    handleResize();
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  // Slider settings
   const sliderSettings = {
     dots: false,
     arrows: false,
@@ -46,19 +45,6 @@ const Choose = () => {
     ],
   };
 
-  const handleScroll = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      const navHeight = 80; // Approximate navbar height
-      const elementPosition = section.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - navHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
   return (
     <div className="relative " id="why-choose">
       <div className="sm:px-10 px-5 sm:py-10 py-5 w-full mt-40">
@@ -163,10 +149,9 @@ const Choose = () => {
             <a className="min-[1525px]:mt-8 mt-4 inline-flex flex-shrink-0 cursor-pointer">
               <MagicButton
                 title="Get a Free Consultation"
-                // icon={<FaLocationArrow />}
                 position="right"
                 otherClasses="font-[family-name:var(--font-satoshi)] min-[540px]:text-base text-sm"
-                handleClick={() => handleScroll("contact")}
+                handleClick={() => scrollToSection("contact")}
               />
             </a>
           </div>

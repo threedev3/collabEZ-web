@@ -6,17 +6,17 @@ import { Spotlight } from "./ui/spotlight";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
 import MagicButton from "./MagicButton";
 import { scrollToSection } from "@/lib/scrollToSection";
+import Image from "next/image";
+import Link from "next/link";
 
-const Hero = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+const SubHero = () => {
   return (
     <section
-      className="min-h-screen relative z-30 border-b border-white/20"
-      id="home"
+      className="min-h-screen relative z-10 border-b border-white/20"
+      id="thank-home"
     >
       <div
-        className="bg-[url('/heroBg.png')] bg-no-repeat  bg-cover bg-center w-full relative z-30"
+        className="bg-[url('/heroBg.png')] bg-no-repeat  bg-cover bg-center w-full relative z-10"
         // id="home"
       >
         <CardSpotlight className=" relative sm:px-10 px-5 sm:py-10 py-5 h-[100vh] w-full z-10">
@@ -29,45 +29,42 @@ const Hero = () => {
           </div>
 
           <div className="max-w-[93%] w-full mx-auto relative z-0 ">
-            <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+            <Link href="/">
+              <Image
+                src="/logo.png"
+                width={180}
+                height={100}
+                alt="collabez-logo"
+                className="cursor-pointer object-contain"
+              />
+            </Link>
           </div>
 
           <div
-            className={`flex justify-center items-center relative h-[96%] lg:z-[0] ${
-              isMenuOpen ? "-z-[1]" : "z-0"
-            }`}
+            className={`flex justify-center items-center relative h-[96%] lg:z-[0] `}
           >
             <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[80vw] xl:max-w-[85vw] min-[1400px]:max-w-[70vw] flex flex-col min-[1400px]:gap-16 xl:gap-16 lg:gap-10 gap-16 items-center justify-center h-full">
               <TextGenerateEffect
-                words={["From Concept to Code,", "Transforming Ideas into"]}
-                rotatingWords={[
-                  "Websites",
-                  "Mobile Apps",
-                  "Custom Software",
-                  "Ecommerce Solutions",
-                ]}
+                words={["Thank You for Reaching Out!"]}
                 className="text-center text-[28px] min-[375px]:text-[30px] min-[414px]:text-[32px] min-[540px]:text-[40px] md:text-[56px] lg:text-[56px] xl:text-[68px] min-[1400px]:text-[80px] font-[family-name:var(--font-satoshi-bold)]"
               />
 
               {/* <p className="text-center md:tracking-wider xl:mb-4 text-[17px] min-[414px]:text-lg min-[540px]:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-[family-name:var(--font-satoshi)]">
                 Websites • Mobile Apps • Custom Software
               </p> */}
-              {/* <p className="text-center md:tracking-wider xl:mb-4 text-base text-white/80 min-[414px]:text-base min-[540px]:text-base md:text-lg xl:text-xl font-[family-name:var(--font-satoshi)]">
-                Searching for a dependable tech ally in UAE & KSA? Look no
-                further. CollabEZ brings your ideas to life with precision and
-                care. We&apos;re not just service providers; we&apos;re your
-                long-term partners in digital success. Curious about what we can
-                achieve together?
-              </p> */}
+              <p className="text-center md:tracking-wider xl:mb-4 text-base text-white/80 min-[414px]:text-base min-[540px]:text-lg md:text-xl xl:text-xl min-[1400px]:text-2xl font-[family-name:var(--font-satoshi)] max-w-4xl">
+                We've received your information and our team will get back to
+                you shortly to discuss your project. Stay tuned for an email
+                from us!
+              </p>
 
-              <a className="relative cursor-pointer">
+              <Link className="relative cursor-pointer" href={"/"}>
                 <MagicButton
-                  title="Explore Your Possibilities"
+                  title="Back To Home"
                   position="right"
                   otherClasses="font-[family-name:var(--font-satoshi)]"
-                  handleClick={() => scrollToSection("services")}
                 />
-              </a>
+              </Link>
             </div>
           </div>
         </CardSpotlight>
@@ -76,4 +73,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default SubHero;

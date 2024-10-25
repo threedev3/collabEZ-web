@@ -6,13 +6,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useInView } from "react-intersection-observer";
 
-interface ProcessStepType {
+interface ThankyouStepType {
   number: string;
   title: string;
   description: string;
 }
 
-const Process = () => {
+const ThankYouComp = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
   const { ref, inView } = useInView({
@@ -49,50 +49,32 @@ const Process = () => {
     cssEase: "linear",
   };
 
-  const processSteps: ProcessStepType[] = [
+  const thankyouSteps: ThankyouStepType[] = [
     {
       number: "01",
-      title: "Discovery",
+      title: "Initial Consultation",
       description:
-        "We start with a detailed discussion to understand your needs, goals, and vision.",
+        "We'll review your project details and reach out to schedule a quick call to understand your vision and requirements better.",
     },
     {
       number: "02",
-      title: "Research & Planning",
+      title: "Tailored Proposal",
       description:
-        "Our team conducts thorough research and creates a comprehensive project plan.",
+        "After our consultation, we’ll create a customized proposal outlining the best solutions for your project, timeline, and budget.",
     },
     {
       number: "03",
-      title: "Design",
+      title: "Kick-off & Development",
       description:
-        "We create intuitive and visually appealing designs tailored to your brand.",
-    },
-    {
-      number: "04",
-      title: "Development",
-      description:
-        "Our skilled developers bring the designs to life with clean, efficient code.",
-    },
-    {
-      number: "05",
-      title: "Testing & Refinement",
-      description:
-        "Rigorous testing ensures a bug-free, high-performance final product.",
-    },
-    {
-      number: "06",
-      title: "Launch & Support",
-      description:
-        "We assist with deployment and provide ongoing support to ensure your success.",
+        "Once we agree on the plan, our expert team will begin working on your project, keeping you updated at every stage of development.",
     },
   ];
 
-  const ProcessStep = ({
+  const ThankYouStep = ({
     step,
     index,
   }: {
-    step: ProcessStepType;
+    step: ThankyouStepType;
     index: number;
   }) => (
     <motion.div
@@ -136,7 +118,7 @@ const Process = () => {
           {step.number}
         </div>
       </motion.div>
-      <h4 className="text-white text-3xl font-bold mb-2 font-[family-name:var(--font-satoshi)]">
+      <h4 className="text-white xl:text-3xl text-2xl font-bold mb-2 font-[family-name:var(--font-satoshi)]">
         {step.title}
       </h4>
       <p className="text-gray-300 text-base font-[family-name:var(--font-satoshi)] max-w-xs">
@@ -158,7 +140,7 @@ const Process = () => {
           )}
         </>
       )}
-      {!isMobile && isTablet && (
+      {/* {!isMobile && isTablet && (
         <>
           {((index < 3 && index % 2 === 0) ||
             (index >= 3 && index < 5 && index % 2 === 0)) && (
@@ -174,8 +156,8 @@ const Process = () => {
             </div>
           )}
         </>
-      )}
-      {isMobile && (
+      )} */}
+      {isTablet && (
         <>
           {(index < 3 || (index >= 3 && index < 5)) && (
             <div className="absolute top-20 min-[540px]:-right-[27%] -right-[24%] min-[540px]:w-[55%] w-[47%] mx-auto h-0.5 overflow-hidden">
@@ -195,28 +177,26 @@ const Process = () => {
   );
 
   return (
-    <div
-      className="relative sm:px-10 px-5 sm:py-10 py-5 w-full "
-      id="process"
-      ref={ref}
-    >
+    <div className="relative sm:px-10 px-5 sm:py-16 py-5 w-full " ref={ref}>
+      <div className="absolute -top-32 -left-56 bg-blur-gradient  lg:w-[700px] lg:h-[700px] sm:w-[400px] sm:h-[400px] w-[400px] h-[400px]" />
+
       <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-8 lg:gap-6 gap-6 items-start justify-center h-full">
         <div className="flex  min-[806px]:gap-6 gap-0 items-start justify-between w-full">
           <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-full min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[375px]:text-[32px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)] text-center mx-auto">
-            From Concepts To Launch
+            What Happens Next?
           </h3>
         </div>
 
-        {isMobile ? (
+        {isTablet ? (
           <Slider {...sliderSettings} className="w-full relative z-20">
-            {processSteps.map((step, index) => (
-              <ProcessStep key={step.number} step={step} index={index} />
+            {thankyouSteps.map((step, index) => (
+              <ThankYouStep key={step.number} step={step} index={index} />
             ))}
           </Slider>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-            {processSteps.map((step, index) => (
-              <ProcessStep key={step.number} step={step} index={index} />
+            {thankyouSteps.map((step, index) => (
+              <ThankYouStep key={step.number} step={step} index={index} />
             ))}
           </div>
         )}
@@ -225,4 +205,4 @@ const Process = () => {
   );
 };
 
-export default Process;
+export default ThankYouComp;

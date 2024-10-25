@@ -7,6 +7,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 interface NavItem {
   name: string;
@@ -26,7 +27,6 @@ export const FloatingNav = ({
   const [visible, setVisible] = useState(false);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
     if (typeof current === "number") {
       const direction = current! - scrollYProgress.getPrevious()!;
 
@@ -41,20 +41,6 @@ export const FloatingNav = ({
       }
     }
   });
-
-  const handleScroll = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      const navHeight = 80; // Approximate navbar height
-      const elementPosition = section.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - navHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
 
   return (
     <AnimatePresence mode="wait">
@@ -78,13 +64,11 @@ export const FloatingNav = ({
         {navItems.map((navItem, idx: number) => (
           <li
             key={`link=${idx}`}
-            // href={navItem.link}
-            onClick={() => handleScroll(navItem.id)}
+            onClick={() => scrollToSection(navItem.id)}
             className={cn(
               "relative dark:text-neutral-50 items-center flex flex-wrap space-x-1 text-white dark:hover:text-neutral-300 hover:text-heroColor transition-all duration-300 cursor-pointer"
             )}
           >
-            {/* <span className="block sm:hidden">{navItem.icon}</span> */}
             <span className="block text-sm">{navItem.name}</span>
           </li>
         ))}
