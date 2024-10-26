@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { FloatingNav } from "./ui/FloatingNavbar";
 import { navItems } from "@/data";
 import { FaBars } from "react-icons/fa6";

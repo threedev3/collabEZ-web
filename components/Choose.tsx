@@ -76,7 +76,7 @@ const Choose = () => {
                         alt=""
                         height={80}
                         width={80}
-                        className="w-auto object-contain"
+                        className="object-contain"
                       />
                     </div>
 
@@ -112,9 +112,9 @@ const Choose = () => {
                     <Image
                       src={chooseItem.icon}
                       alt=""
-                      height={70}
-                      width={70}
-                      className="w-auto object-contain"
+                      height={80}
+                      width={80}
+                      className=" object-contain"
                     />
                   </div>
 

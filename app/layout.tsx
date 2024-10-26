@@ -4,6 +4,7 @@ import Script from "next/script";
 
 import "./globals.css";
 import { ThemeProvider } from "./provider";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "CollabEZ- Let's Create Extraordinary",
@@ -82,11 +83,12 @@ export default function RootLayout({
 
         {pixelId && (
           <noscript>
-            <img
+            <Image
               height="1"
               width="1"
               style={{ display: "none" }}
               src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
+              alt=""
             />
           </noscript>
         )}

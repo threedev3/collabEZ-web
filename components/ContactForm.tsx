@@ -6,9 +6,9 @@ import "react-international-phone/style.css";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 import { ActionMeta, SingleValue, StylesConfig } from "react-select";
 import { useRouter } from "next/navigation";
+import countryList from "react-select-country-list";
 
 const Select = dynamic(() => import("react-select"), { ssr: false });
 
@@ -57,6 +57,8 @@ const ContactForm = () => {
     projectTimeline: null,
   });
   const [errors, setErrors] = useState<FormErrors>({});
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const options = countryList().getData();
 
   const phoneUtil = PhoneNumberUtil.getInstance();
 
@@ -95,6 +97,13 @@ const ContactForm = () => {
       [fieldName]: selectedOption,
     }));
   };
+
+  // const handleCountryChange = (selectedOption: OptionType) => {
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     country: selectedOption.label, // Update the country field directly
+  //   }));
+  // };
 
   const validateForm = () => {
     const formErrors: FormErrors = {};
@@ -401,6 +410,16 @@ const ContactForm = () => {
                     onChange={handleInputChange}
                     className="w-full font-[family-name:var(--font-satoshi)] py-3 px-6 rounded-lg bg-white/5 border-2 border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-0 focus:ring-none "
                   />
+                  {/* <Select
+                    name="country"
+                    options={options}
+                    onChange={(value) =>
+                      handleCountryChange(value as OptionType)
+                    }
+                    placeholder="Select your country"
+                    className="w-full font-[family-name:var(--font-satoshi)] "
+                    styles={customStyles}
+                  /> */}
                   {errors.country && (
                     <span className="text-red-500 font-[family-name:var(--font-satoshi)] lg:text-base text-sm">
                       {errors.country}

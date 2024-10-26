@@ -1,11 +1,9 @@
 "use client";
-import React, { useState } from "react";
-import Navbar from "./Navbar";
+import React from "react";
 import { CardSpotlight } from "./ui/card-spotlight";
 import { Spotlight } from "./ui/spotlight";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
 import MagicButton from "./MagicButton";
-import { scrollToSection } from "@/lib/scrollToSection";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -53,8 +51,8 @@ const SubHero = () => {
                 Websites • Mobile Apps • Custom Software
               </p> */}
               <p className="text-center md:tracking-wider xl:mb-4 text-base text-white/80 min-[414px]:text-base min-[540px]:text-lg md:text-xl xl:text-xl min-[1400px]:text-2xl font-[family-name:var(--font-satoshi)] max-w-4xl">
-                We've received your information and our team will get back to
-                you shortly to discuss your project. Stay tuned for an email
+                We&apos;ve received your information and our team will get back
+                to you shortly to discuss your project. Stay tuned for an email
                 from us!
               </p>
 
