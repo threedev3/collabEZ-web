@@ -114,7 +114,7 @@ export default function RootLayout({
 
         {hubspotId && (
           <Script
-            id="hubspot-tracking"
+            id="hs-script-loader"
             strategy="afterInteractive"
             src={`//js-eu1.hs-scripts.com/${hubspotId}.js`}
             async

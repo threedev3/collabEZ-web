@@ -11,7 +11,7 @@ interface HeroProps {
   navItems: any;
 }
 
-const Hero: React.FC<HeroProps> = ({ navItems }) => {
+const ServiceHero: React.FC<HeroProps> = ({ navItems }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -45,37 +45,44 @@ const Hero: React.FC<HeroProps> = ({ navItems }) => {
               isMenuOpen ? "-z-[1]" : "z-0"
             }`}
           >
-            <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[80vw] xl:max-w-[85vw] min-[1400px]:max-w-[70vw] flex flex-col min-[1400px]:gap-16 xl:gap-16 lg:gap-10 gap-16 items-center justify-center h-full">
+            <div className=" flex flex-col min-[1400px]:gap-16 xl:gap-16 lg:gap-10 gap-16 items-center justify-center h-full">
               <TextGenerateEffect
-                words={["From Concept to Code,", "Transforming Ideas into"]}
-                rotatingWords={[
-                  "Websites",
-                  "Mobile Apps",
-                  "Custom Software",
-                  "Ecommerce Solutions",
-                ]}
-                className="text-center text-[28px] min-[375px]:text-[30px] min-[414px]:text-[32px] min-[540px]:text-[40px] md:text-[56px] lg:text-[56px] xl:text-[68px] min-[1400px]:text-[80px] font-[family-name:var(--font-satoshi-bold)]"
+                words={["AI & Automation Solutions"]}
+                // rotatingWords={[
+                //   "Websites",
+                //   "Mobile Apps",
+                //   "Custom Software",
+                //   "Ecommerce Solutions",
+                // ]}
+                className="text-center text-[28px] min-[375px]:text-[30px] min-[414px]:text-[32px] min-[540px]:text-[40px] md:text-[56px] lg:text-[56px] xl:text-[68px] min-[1400px]:text-[80px] font-[family-name:var(--font-satoshi-bold)] max-w-[89vw] md:max-w-2xl lg:max-w-[80vw] xl:max-w-[85vw] min-[1400px]:max-w-[38vw]"
               />
+
+              <p className="text-center md:tracking-wider xl:mb-4 text-[17px] min-[414px]:text-lg min-[540px]:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-[family-name:var(--font-satoshi)] font-semibold max-w-[89vw] md:max-w-2xl lg:max-w-[80vw] xl:max-w-[85vw] min-[1400px]:max-w-[38vw]">
+                Drive Efficiency, Reduce Costs, and Scale Faster{" "}
+                <span className="text-heroColor">
+                  AI Automation Solutions at CollabEZ
+                </span>
+              </p>
 
               {/* <p className="text-center md:tracking-wider xl:mb-4 text-[17px] min-[414px]:text-lg min-[540px]:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-[family-name:var(--font-satoshi)]">
                 Websites • Mobile Apps • Custom Software
               </p> */}
-              {/* <p className="text-center md:tracking-wider xl:mb-4 text-base text-white/80 min-[414px]:text-base min-[540px]:text-base md:text-lg xl:text-xl font-[family-name:var(--font-satoshi)]">
-                Searching for a dependable tech ally in UAE & KSA? Look no
-                further. CollabEZ brings your ideas to life with precision and
-                care. We&apos;re not just service providers; we&apos;re your
-                long-term partners in digital success. Curious about what we can
-                achieve together?
-              </p> */}
+              <p className="text-center md:tracking-wider xl:mb-4 text-base text-white/80 min-[414px]:text-base min-[540px]:text-base md:text-lg xl:text-xl font-[family-name:var(--font-satoshi)] max-w-[89vw] md:max-w-2xl lg:max-w-[80vw] xl:max-w-[85vw] min-[1400px]:max-w-[60vw]">
+                At CollabEZ, we leverage the power of Artificial Intelligence
+                (AI) and AI automation to streamline business operations,
+                enhance decision-making, and improve customer experiences. Our
+                AI-driven solutions help businesses reduce costs, increase
+                efficiency, and gain a competitive edge in the digital era.
+              </p>
 
-              <a className="relative cursor-pointer">
+              {/* <a className="relative cursor-pointer">
                 <MagicButton
                   title="Explore Your Possibilities"
                   position="right"
                   otherClasses="font-[family-name:var(--font-satoshi)]"
                   handleClick={() => scrollToSection("services")}
                 />
-              </a>
+              </a> */}
             </div>
           </div>
         </CardSpotlight>
@@ -84,4 +91,4 @@ const Hero: React.FC<HeroProps> = ({ navItems }) => {
   );
 };
 
-export default Hero;
+export default ServiceHero;

@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import dynamic from "next/dynamic";
 import { ActionMeta, SingleValue, StylesConfig } from "react-select";
 import { useRouter } from "next/navigation";
-import countryList from "react-select-country-list";
+// import countryList from "react-select-country-list";
 
 const Select = dynamic(() => import("react-select"), { ssr: false });
 
@@ -57,8 +57,8 @@ const ContactForm = () => {
     projectTimeline: null,
   });
   const [errors, setErrors] = useState<FormErrors>({});
-  const [selectedCountry, setSelectedCountry] = useState(null);
-  const options = countryList().getData();
+  // const [selectedCountry, setSelectedCountry] = useState(null);
+  // const options = countryList().getData();
 
   const phoneUtil = PhoneNumberUtil.getInstance();
 
@@ -370,7 +370,7 @@ const ContactForm = () => {
               <div className="grid md:grid-cols-2 grid-cols-1 gap-3">
                 <div className="flex flex-col gap-2 w-full">
                   <PhoneInput
-                    defaultCountry="pk"
+                    defaultCountry="ae"
                     name="phone"
                     value={formData.phone}
                     onChange={handlePhoneChange}

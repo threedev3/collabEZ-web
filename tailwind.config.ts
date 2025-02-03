@@ -18,6 +18,7 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         purpleBg: "#854CFF",
+        purpleBgTo: "#A604F2",
         heroColor: "#FFAE00",
         purpleGrad: "#504CFF",
         blackBg: "#1A1A1A",
@@ -26,6 +27,7 @@ const config: Config = {
         portfolioBorder: "#FFEDC7",
         reviewCard: "#151515",
         contactFormBg: "#0A0D17",
+        arrowColor: "#8E2DE2",
       },
       backgroundImage: {
         "dual-radial":

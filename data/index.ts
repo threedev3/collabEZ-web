@@ -7,6 +7,14 @@ export const navItems = [
   { name: "Our Process", id: "process" },
   { name: "Contact Us", id: "contact" },
 ];
+export const navItemsAI = [
+  { name: "Home", id: "homeAI" },
+  { name: "Service", id: "serviceAI" },
+  { name: "Our Portfolio", id: "portfolioAI" },
+  { name: "Why Collabez", id: "why-choose-ai" },
+  { name: "Reviews", id: "reviewsAI" },
+  { name: "Contact Us", id: "contactAI" },
+];
 
 export const serviceItems = [
   {
@@ -153,5 +161,33 @@ export const reviewItems = [
     tagLine: "Riyadh",
     review:
       "CollabEZ transformed our online presence with a fantastic website. It improved customer engagement and boosted sales. Their support was excellent. Highly recommend their services!",
+  },
+];
+
+export const benefits = [
+  {
+    title: "Enhanced Efficiency & Automation",
+    content:
+      "AI automates repetitive and time-consuming tasks, reducing manual effort and minimizing errors. This allows employees to focus on high-value strategic work, boosting productivity and operational efficiency.",
+  },
+  {
+    title: "Data-Driven Decision Making",
+    content:
+      "AI processes vast amounts of data in real time, identifying trends, predicting outcomes, and optimizing business strategies. Predictive analytics empowers businesses with accurate forecasting, improved risk management, and deeper customer insights.",
+  },
+  {
+    title: "Improved Customer Experience",
+    content:
+      "AI-powered chatbots, virtual assistants, and personalized recommendations enable real-time customer support and engagement. This enhances the overall customer experience, increasing satisfaction, retention, and loyalty.",
+  },
+  {
+    title: "Cost Reduction & Optimization",
+    content:
+      "By automating workflows, reducing downtime, and minimizing waste, AI significantly cuts operational costs. Smart automation eliminates unnecessary manpower expenses while improving efficiency and business scalability.",
+  },
+  {
+    title: "Scalability & Competitive Advantage",
+    content:
+      "AI-driven automation allows businesses to scale faster, optimize processes, and stay ahead of market trends. Companies that integrate AI gain a strong competitive advantage by responding quickly to customer demands and evolving industry needs.",
   },
 ];

@@ -1,20 +1,25 @@
 "use client";
 import React from "react";
 import { FloatingNav } from "./ui/FloatingNavbar";
-import { navItems } from "@/data";
 import { FaBars } from "react-icons/fa6";
 import { IoCloseSharp } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import MagicButton from "./MagicButton";
 import { scrollToSection } from "@/lib/scrollToSection";
+import Link from "next/link";
 
 interface NavbarProps {
   isMenuOpen: boolean;
   setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  navItems: any;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen }) => {
+const Navbar: React.FC<NavbarProps> = ({
+  isMenuOpen,
+  setIsMenuOpen,
+  navItems,
+}) => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     document.body.style.overflow = isMenuOpen ? "auto" : "hidden";
@@ -49,7 +54,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen }) => {
   return (
     <header className="flex flex-row justify-between items-center gap-3 relative">
       <div className="flex flex-row justify-between items-center gap-3 w-full ">
-        <div>
+        <Link href="/">
           <Image
             src="/logo.png"
             width={180}
@@ -57,11 +62,11 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen }) => {
             alt="collabez-logo"
             className="cursor-pointer object-contain"
           />
-        </div>
+        </Link>
 
         <nav>
           <ul className="lg:flex lg:items-center min-[1400px]:gap-6 xl:gap-4 gap-3 hidden">
-            {navItems.map((item, index) => (
+            {navItems?.map((item: any, index: number) => (
               <li
                 key={index}
                 className="list-none font-[family-name:var(--font-satoshi)] capitalize cursor-pointer text-white hover:text-heroColor transition-all duration-300 xl:text-base text-sm"
@@ -128,7 +133,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen }) => {
               variants={menuVariants}
             >
               <ul className="space-y-5 text-center">
-                {navItems.map((item, index) => (
+                {navItems.map((item: any, index: number) => (
                   <motion.li key={index} variants={itemVariants}>
                     <button
                       onClick={() => handleScroll(item.id)}

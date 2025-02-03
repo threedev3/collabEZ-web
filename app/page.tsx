@@ -9,6 +9,7 @@ import Process from "@/components/Process";
 import Reviews from "@/components/Reviews";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Services } from "@/components/Services";
+import { navItems } from "@/data";
 import { Toaster } from "react-hot-toast";
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
       <Toaster position="bottom-center" />
       <div className="absolute inset-0 bg-black opacity-40"></div>
       <div className="relative z-20 w-full">
-        <Hero />
+        <Hero navItems={navItems} />
         <div className="relative z-20">
           <AnimateOnScroll>
             <TechSlider />
