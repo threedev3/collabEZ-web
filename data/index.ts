@@ -191,3 +191,34 @@ export const benefits = [
       "AI-driven automation allows businesses to scale faster, optimize processes, and stay ahead of market trends. Companies that integrate AI gain a strong competitive advantage by responding quickly to customer demands and evolving industry needs.",
   },
 ];
+
+export const services = [
+  {
+    id: 1,
+    icon: "/chooseAI1.png",
+    title: "AI Expertise",
+    description:
+      "Our AI specialists stay ahead of technological advancements to deliver cutting-edge, future-proof AI solutions.",
+  },
+  {
+    id: 2,
+    icon: "/chooseAI2.png",
+    title: "Custom AI Development",
+    description:
+      "We design AI solutions tailored to your business, ensuring seamless integration with your existing systems.",
+  },
+  {
+    id: 3,
+    icon: "/chooseAI3.png",
+    title: "Scalability & Growth",
+    description:
+      "Our AI-powered solutions scale effortlessly with your business, adapting to evolving needs without performance limitations.",
+  },
+  {
+    id: 4,
+    icon: "/chooseAI4.png",
+    title: "Data Security & Compliance",
+    description:
+      "We prioritize data protection with secure AI implementations, ensuring compliance with industry standards and regulations.",
+  },
+];

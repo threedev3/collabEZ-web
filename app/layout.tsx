@@ -40,7 +40,7 @@ export default function RootLayout({
 
         <link rel="preload" href="/heroBg.png" as="image" />
         <link rel="preload" href="/logo.png" as="image" />
-        {gaId && (
+        {/* {gaId && (
           <Script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
@@ -120,7 +120,7 @@ export default function RootLayout({
             async
             defer
           />
-        )}
+        )} */}
       </head>
       <body className={`${satoshiRegular.variable} ${satoshiBold.variable}`}>
         <ThemeProvider

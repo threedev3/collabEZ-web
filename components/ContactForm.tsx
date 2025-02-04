@@ -166,6 +166,10 @@ const ContactForm = () => {
         projectType: projectTypeValue,
         projectBudget: projectBudgetValue,
         projectTimeline: projectTimelineValue,
+
+        industry: "",
+        aiSolutions: "",
+        projectDetails: "",
       };
 
       emailjs
@@ -185,7 +189,7 @@ const ContactForm = () => {
             projectTimeline: null,
           });
           // setIsSubmitting(false);
-          // router.push("/thank-you");
+          router.push("/thank-you");
         })
         .catch((error) => {
           console.log("FAILED..", error);
@@ -193,7 +197,6 @@ const ContactForm = () => {
         })
         .finally(() => {
           setIsSubmitting(false);
-          router.push("/thank-you");
         });
     }
   };

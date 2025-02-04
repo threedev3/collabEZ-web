@@ -23,11 +23,13 @@ export function AccordionItem({
         onClick={onToggle}
         className="flex items-center justify-between w-full py-4 text-left"
       >
-        <div className="flex items-center gap-4">
+        <div className="flex items-center md:gap-4 gap-2">
           <span className="text-arrowColor">
             <FaArrowRight />
           </span>
-          <span className="text-white text-2xl">{title}</span>
+          <span className="text-white md:text-2xl sm:text-xl text-lg">
+            {title}
+          </span>
         </div>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}

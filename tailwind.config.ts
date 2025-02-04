@@ -28,6 +28,9 @@ const config: Config = {
         reviewCard: "#151515",
         contactFormBg: "#0A0D17",
         arrowColor: "#8E2DE2",
+        getStartedFrom: "#7100A6",
+        getStartedVia: "#310D7E",
+        getStartedTo: "#502E99",
       },
       backgroundImage: {
         "dual-radial":
@@ -35,7 +38,13 @@ const config: Config = {
         "blur-gradient": "radial-gradient(circle, #504CFF60 0%, #504CFF00 70%)",
         "blur-gradient-purple":
           "radial-gradient(circle, #854CFF60 0%, #854CFF00 70%)",
+        "blur-gradient-black":
+          "radial-gradient(circle, #000000 0%, #00000000 70%)",
+        "blur-gradient-pink":
+          "radial-gradient(circle, #A604F290 0%, #854CFF00 75%)",
         "gradient-border": "linear-gradient(90deg, #5B3CCC, #020105)",
+        "radial-dark":
+          "radial-gradient(circle, rgba(0,0,0) 20%, rgba(0,0,0) 60%, rgba(0,0,0,0) 80%)",
       },
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",
