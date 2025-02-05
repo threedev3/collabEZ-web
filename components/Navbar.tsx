@@ -13,12 +13,14 @@ interface NavbarProps {
   isMenuOpen: boolean;
   setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
   navItems: any;
+  ctaAction: string;
 }
 
 const Navbar: React.FC<NavbarProps> = ({
   isMenuOpen,
   setIsMenuOpen,
   navItems,
+  ctaAction,
 }) => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -89,7 +91,7 @@ const Navbar: React.FC<NavbarProps> = ({
               title="Get A Quote"
               position="right"
               otherClasses="font-[family-name:var(--font-satoshi)] w-32 "
-              handleClick={() => scrollToSection("contact")}
+              handleClick={() => scrollToSection(ctaAction)}
             />
           </a>
         </div>
@@ -137,7 +139,7 @@ const Navbar: React.FC<NavbarProps> = ({
                   <motion.li key={index} variants={itemVariants}>
                     <button
                       onClick={() => handleScroll(item.id)}
-                      className="text-white text-4xl font-bold hover:text-heroColor transition-colors duration-300 font-[family-name:var(--font-satoshi)]"
+                      className="text-white text-3xl font-bold hover:text-heroColor transition-colors duration-300 font-[family-name:var(--font-satoshi)]"
                     >
                       {item.name}
                     </button>
@@ -158,7 +160,7 @@ const Navbar: React.FC<NavbarProps> = ({
                   // icon={<FaLocationArrow />}
                   position="right"
                   otherClasses="font-[family-name:var(--font-satoshi)] w-48 "
-                  handleClick={() => handleScroll("contact")}
+                  handleClick={() => handleScroll(ctaAction)}
                 />
               </a>
             </motion.div>

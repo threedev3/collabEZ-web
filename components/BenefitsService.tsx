@@ -5,14 +5,16 @@ import { scrollToSection } from "@/lib/scrollToSection";
 import Image from "next/image";
 import { benefits } from "@/data";
 import { AccordionItem } from "./AccordianItem";
+import { useScreenSize } from "@/lib/screenSize";
 
 const BenefitServices = () => {
   const [openIndex, setOpenIndex] = useState<number>(0);
+  const isLargeScreen = useScreenSize();
   return (
     <div
       className="relative sm:px-10 px-5 sm:py-10 py-5 w-full"
       style={{
-        backgroundImage: 'url("/benefitsBg.png")',
+        backgroundImage: isLargeScreen ? 'url("/benefitsBg.png")' : "",
         backgroundRepeat: "no-repeat",
         backgroundSize: "contain",
         backgroundPosition: "0px center",
@@ -31,7 +33,7 @@ const BenefitServices = () => {
               title="Start Your Journey"
               position="right"
               otherClasses="font-[family-name:var(--font-satoshi)]"
-              handleClick={() => scrollToSection("servicesAI")}
+              handleClick={() => scrollToSection("contact-ai")}
             />
           </a>
         </div>
@@ -69,6 +71,7 @@ const BenefitServices = () => {
                   onToggle={() =>
                     setOpenIndex(index === openIndex ? -1 : index)
                   }
+                  isLast={index === benefits.length - 1}
                 />
               ))}
             </div>

@@ -37,6 +37,7 @@ const Hero: React.FC<HeroProps> = ({ navItems }) => {
               isMenuOpen={isMenuOpen}
               setIsMenuOpen={setIsMenuOpen}
               navItems={navItems}
+              ctaAction={"contact"}
             />
           </div>
 

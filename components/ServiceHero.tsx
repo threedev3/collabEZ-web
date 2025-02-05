@@ -37,6 +37,7 @@ const ServiceHero: React.FC<HeroProps> = ({ navItems }) => {
               isMenuOpen={isMenuOpen}
               setIsMenuOpen={setIsMenuOpen}
               navItems={navItems}
+              ctaAction={"contact-ai"}
             />
           </div>
 
@@ -54,14 +55,14 @@ const ServiceHero: React.FC<HeroProps> = ({ navItems }) => {
                 //   "Custom Software",
                 //   "Ecommerce Solutions",
                 // ]}
-                className="text-center text-[28px] min-[375px]:text-[30px] min-[414px]:text-[32px] min-[540px]:text-[40px] md:text-[56px] lg:text-[56px] xl:text-[68px] min-[1400px]:text-[80px] font-[family-name:var(--font-satoshi-bold)] max-w-[89vw] md:max-w-2xl lg:max-w-[80vw] xl:max-w-[85vw] min-[1400px]:max-w-[38vw]"
+                className="text-center text-[28px] min-[375px]:text-[30px] min-[414px]:text-[32px] min-[540px]:text-[40px] md:text-[56px] lg:text-[56px] xl:text-[68px] min-[1400px]:text-[80px] font-[family-name:var(--font-satoshi-bold)] max-w-[89vw] md:max-w-2xl lg:max-w-[80vw] xl:max-w-[85vw] min-[1400px]:max-w-[68vw]"
               />
 
               <p className="text-center md:tracking-wider xl:mb-4 text-[17px] min-[414px]:text-lg min-[540px]:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-[family-name:var(--font-satoshi)] font-semibold max-w-[89vw] md:max-w-2xl lg:max-w-[80vw] xl:max-w-[85vw] min-[1400px]:max-w-[38vw]">
                 Drive Efficiency, Reduce Costs, and Scale Faster{" "}
-                <span className="text-heroColor">
+                {/* <span className="text-heroColor">
                   AI Automation Solutions at CollabEZ
-                </span>
+                </span> */}
               </p>
 
               {/* <p className="text-center md:tracking-wider xl:mb-4 text-[17px] min-[414px]:text-lg min-[540px]:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-[family-name:var(--font-satoshi)]">

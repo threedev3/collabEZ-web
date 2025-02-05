@@ -6,6 +6,7 @@ import { serviceItems } from "@/data";
 import Image from "next/image";
 import MagicButton from "./MagicButton";
 import { scrollToSection } from "@/lib/scrollToSection";
+import Link from "next/link";
 
 export function Services() {
   return (
@@ -32,50 +33,56 @@ export function Services() {
           </a>
         </div>
 
-        <div className="grid lg:grid-cols-2 flex-wrap  gap-6 w-full mt-6">
+        <div className="grid lg:grid-cols-2 flex-wrap xl:gap-6 gap-3 w-full mt-6">
           {serviceItems.map((item, index) => (
-            <CardSpotlight
-              key={index}
-              className={`${
-                index === 0 || index === 3 || index === 4
-                  ? "col-span-1"
-                  : "col-span-1"
-              } relative bg-gradient-to-t from-[#111] serviceBorder to-[#1a1a1a] p-6 shadow-md hover:shadow-lg transition-shadow duration-300 group overflow-hidden max-h-96 flex justify-between items-center gap-4`}
-            >
-              <div className="relative flex flex-col justify-center space-y-6 text-white z-10 h-full">
-                <div className="w-[60px] h-[60px] bg-[#6F6F71] rounded-full flex justify-center items-center flex-shrink-0">
-                  <Image
-                    src={item.icon}
-                    width={33}
-                    height={33}
-                    alt={`${item.title} Icon`}
-                    className="h-auto w-auto object-contain"
-                  />
+            <Link href={index === 0 ? "/ai-automation" : "#"}>
+              <CardSpotlight
+                key={index}
+                className={`${
+                  index === 0 || index === 3 || index === 4
+                    ? "col-span-1"
+                    : "col-span-1"
+                } relative p-6 shadow-md hover:shadow-lg transition-shadow duration-300 group overflow-hidden max-h-96 flex justify-between items-center gap-2 cursor-pointer ${
+                  item.boxClass
+                }`}
+              >
+                <div className="relative flex flex-col justify-center space-y-6 text-white z-10 h-full">
+                  <div className="w-[60px] h-[60px] bg-[#6F6F71] rounded-full flex justify-center items-center flex-shrink-0">
+                    <Image
+                      src={item.icon}
+                      width={33}
+                      height={33}
+                      alt={`${item.title} Icon`}
+                      className="h-auto w-auto object-contain"
+                    />
+                  </div>
+                  <h3 className="font-[family-name:var(--font-satoshi)] font-bold text-white min-[1400px]:text-4xl lg:text-[26px] md:text-3xl sm:text-2xl text-2xl  mb-2 mt-2">
+                    {item.title}
+                  </h3>
+                  <p className="font-[family-name:var(--font-satoshi)] font-normal text-white xl:text-lg text-base mb-4 max-w-[380px]">
+                    {item.description}
+                  </p>
+                  <div
+                    className="flex gap-2 items-start cursor-pointer"
+                    // onClick={(e) => {
+                    //   scrollToSection("contact");
+                    // }}
+                  >
+                    <li className="font-[family-name:var(--font-satoshi)] underline list-none">
+                      Start With Us
+                    </li>
+                    <MdArrowOutward />
+                  </div>
                 </div>
-                <h3 className="font-[family-name:var(--font-satoshi)] font-bold text-white xl:text-4xl lg:text-[26px] md:text-3xl sm:text-2xl text-2xl  mb-2 mt-2">
-                  {item.title}
-                </h3>
-                <p className="font-[family-name:var(--font-satoshi)] font-normal text-white xl:text-lg text-base mb-4 max-w-[380px]">
-                  {item.description}
-                </p>
-                <div
-                  className="flex gap-2 items-start cursor-pointer"
-                  onClick={() => scrollToSection("contact")}
-                >
-                  <li className="font-[family-name:var(--font-satoshi)] underline list-none">
-                    Start With Us
-                  </li>
-                  <MdArrowOutward />
-                </div>
-              </div>
-              <Image
-                src={item.sideImg}
-                alt=""
-                width={300}
-                height={300}
-                className={item.className}
-              />
-            </CardSpotlight>
+                <Image
+                  src={item.sideImg}
+                  alt=""
+                  width={500}
+                  height={500}
+                  className={item.className}
+                />
+              </CardSpotlight>
+            </Link>
           ))}
         </div>
       </div>

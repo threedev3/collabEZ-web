@@ -8,6 +8,7 @@ interface AccordionItemProps {
   content: string;
   isOpen?: boolean;
   onToggle: () => void;
+  isLast?: boolean;
 }
 
 export function AccordionItem({
@@ -15,10 +16,13 @@ export function AccordionItem({
   content,
   isOpen = false,
   onToggle,
+  isLast = false,
 }: AccordionItemProps) {
   return (
     <div className="relative pb-[1px]">
-      <div className="absolute left-0 bottom-0 w-full h-[2px] bg-gradient-to-r from-purpleBg to-purpleBgTo"></div>
+      {!isLast && (
+        <div className="absolute left-0 bottom-0 w-full h-[2px] bg-gradient-to-r from-purpleBg/40 to-purpleBgTo/60"></div>
+      )}
       <button
         onClick={onToggle}
         className="flex items-center justify-between w-full py-4 text-left"
@@ -27,7 +31,7 @@ export function AccordionItem({
           <span className="text-arrowColor">
             <FaArrowRight />
           </span>
-          <span className="text-white md:text-2xl sm:text-xl text-lg">
+          <span className="text-white xl:text-2xl sm:text-xl text-lg font-[family-name:var(--font-satoshi)]">
             {title}
           </span>
         </div>
@@ -52,7 +56,9 @@ export function AccordionItem({
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="pb-4 text-white/70 pl-7">{content}</div>
+            <div className="pb-4 text-white/90 pl-7 sm:text-base text-sm font-[family-name:var(--font-satoshi)]">
+              {content}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

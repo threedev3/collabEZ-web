@@ -193,206 +193,264 @@ const ChooseAICard = ({
 };
 
 const ChooseAI = () => {
-  //   const [activeIndex, setActiveIndex] = useState(0);
-  //   const containerRef = useRef<HTMLDivElement>(null);
-  const [activeCard, setActiveCard] = React.useState(0);
-  const ref = useRef<any>(null);
+  // const [activeCard, setActiveCard] = React.useState(0);
+  // const ref = useRef<any>(null);
 
-  const handleScroll = (e: WheelEvent) => {
-    // e.preventDefault(); // Prevent default page scrolling
+  // const handleScroll = (e: any) => {
+  //   if (!ref.current) return;
 
-    if (!ref.current) return;
+  //   const scrollAmount = e.deltaY;
+  //   if (scrollAmount > 0) {
+  //     setActiveCard((prev) => Math.min(prev + 1, services.length - 1));
+  //   } else {
+  //     setActiveCard((prev) => Math.max(prev - 1, 0));
+  //   }
+  // };
 
-    const scrollAmount = e.deltaY;
-    if (scrollAmount > 0) {
-      setActiveCard((prev) => Math.min(prev + 1, services.length - 1));
-    } else {
-      setActiveCard((prev) => Math.max(prev - 1, 0));
-    }
-  };
+  // const { scrollYProgress } = useScroll({
+  //   container: ref,
+  //   offset: ["start start", "end start"],
+  // });
+  // const cardLength = services.length;
 
-  //   useEffect(() => {
-  //     const container = containerRef.current;
-  //     if (container) {
-  //       container.addEventListener("wheel", handleScroll);
-  //     }
-  //     return () => {
-  //       if (container) {
-  //         container.removeEventListener("wheel", handleScroll);
+  // useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  //   const cardsBreakpoints = services.map((_, index) => index / cardLength);
+  //   const closestBreakpointIndex = cardsBreakpoints.reduce(
+  //     (acc, breakpoint, index) => {
+  //       const distance = Math.abs(latest - breakpoint);
+  //       if (distance < Math.abs(latest - cardsBreakpoints[acc])) {
+  //         return index;
   //       }
-  //     };
-  //   }, []);
+  //       return acc;
+  //     },
+  //     0
+  //   );
+  //   setActiveCard(closestBreakpointIndex);
+  // });
 
-  const { scrollYProgress } = useScroll({
-    // uncomment line 22 and comment line 23 if you DONT want the overflow container and want to have it change on the entire page scroll
-    // target: ref
-    container: ref,
-    offset: ["start start", "end start"],
-  });
-  const cardLength = services.length;
+  // const linearGradients = [
+  //   "linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))",
+  //   "linear-gradient(to bottom right, var(--pink-500), var(--indigo-500))",
+  //   "linear-gradient(to bottom right, var(--orange-500), var(--yellow-500))",
+  // ];
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const cardsBreakpoints = services.map((_, index) => index / cardLength);
-    const closestBreakpointIndex = cardsBreakpoints.reduce(
-      (acc, breakpoint, index) => {
-        const distance = Math.abs(latest - breakpoint);
-        if (distance < Math.abs(latest - cardsBreakpoints[acc])) {
-          return index;
-        }
-        return acc;
-      },
-      0
-    );
-    setActiveCard(closestBreakpointIndex);
-  });
+  // const [backgroundGradient, setBackgroundGradient] = useState(
+  //   linearGradients[0]
+  // );
 
-  const backgroundColors = [
-    "var(--slate-900)",
-    "var(--black)",
-    "var(--neutral-900)",
-  ];
-  const linearGradients = [
-    "linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))",
-    "linear-gradient(to bottom right, var(--pink-500), var(--indigo-500))",
-    "linear-gradient(to bottom right, var(--orange-500), var(--yellow-500))",
-  ];
+  // useEffect(() => {
+  //   setBackgroundGradient(linearGradients[activeCard % linearGradients.length]);
+  // }, [activeCard]);
 
-  const [backgroundGradient, setBackgroundGradient] = useState(
-    linearGradients[0]
-  );
+  // const [activeCard, setActiveCard] = useState(0);
+  // const scrollRef = useRef<HTMLDivElement>(null);
+  // const containerRef = useRef<HTMLDivElement>(null);
+  // const [isInView, setIsInView] = useState(false);
 
-  useEffect(() => {
-    setBackgroundGradient(linearGradients[activeCard % linearGradients.length]);
-  }, [activeCard]);
+  // // Handle component visibility
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       setIsInView(entry.isIntersecting);
+  //     },
+  //     { threshold: 0.5 }
+  //   );
+
+  //   if (containerRef.current) {
+  //     observer.observe(containerRef.current);
+  //   }
+
+  //   return () => observer.disconnect();
+  // }, []);
+
+  // // Control page scroll
+  // useEffect(() => {
+  //   const handlePageScroll = (e: WheelEvent) => {
+  //     if (isInView) {
+  //       if (
+  //         (activeCard === 0 && e.deltaY < 0) ||
+  //         (activeCard === services.length - 1 && e.deltaY > 0)
+  //       ) {
+  //         // Allow page scroll only at boundaries
+  //         return;
+  //       }
+  //       e.preventDefault();
+  //     }
+  //   };
+
+  //   window.addEventListener("wheel", handlePageScroll, { passive: false });
+  //   return () => window.removeEventListener("wheel", handlePageScroll);
+  // }, [activeCard, isInView]);
+
+  // // Handle component scroll
+  // const handleWheel = (e: React.WheelEvent) => {
+  //   e.preventDefault();
+  //   if (e.deltaY > 0 && activeCard < services.length - 1) {
+  //     setActiveCard((prev) => prev + 1);
+  //   } else if (e.deltaY < 0 && activeCard > 0) {
+  //     setActiveCard((prev) => prev - 1);
+  //   }
+  // };
+
+  // // Gradient backgrounds for cards
+  // const gradients = [
+  //   "from-pink-500 to-indigo-500",
+  //   "from-pink-500 to-indigo-500",
+  //   "from-pink-500 to-indigo-500",
+  //   "from-pink-500 to-indigo-500",
+  // ];
+
+  // // Scroll progress tracking
+  // const { scrollYProgress } = useScroll({
+  //   container: containerRef,
+  //   offset: ["start start", "end end"],
+  // });
+
+  // useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  //   const cardIndex = Math.min(
+  //     Math.floor(latest * services.length),
+  //     services.length - 1
+  //   );
+  //   setActiveCard(cardIndex);
+  // });
+
+  // // Card animation variants
+  // const cardVariants = {
+  //   inactive: {
+  //     backgroundColor: "transparent",
+  //     scale: 0.95,
+  //     opacity: 0.5,
+  //     transition: { duration: 0.3 },
+  //   },
+  //   active: {
+  //     scale: 1,
+  //     opacity: 1,
+  //     transition: { duration: 0.3 },
+  //   },
+  // };
+
+  // // Calculate scrollbar height based on active card
+  // const scrollbarHeight = `${100 / services.length}%`;
+  // const scrollbarProgress = (activeCard / (services.length - 1)) * 100;
 
   return (
     <div
+      // ref={containerRef}
       className="relative sm:px-10 px-5 sm:py-10 py-5 w-full "
       id="choose-ai"
-      //   ref={containerRef}
     >
       <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-8 lg:gap-6 gap-6 items-start justify-center h-full">
         <div className="flex min-[806px]:gap-6 gap-0 items-start justify-between w-full">
-          <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-full text-[40px] leading-snug font-[family-name:var(--font-satoshi)] text-center mx-auto">
+          <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-full min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[375px]:text-[32px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)] text-center mx-auto">
             Why Choose CollabEZ for AI Solutions?
           </h3>
         </div>
 
-        <div className="grid grid-cols-2 ">
-          <motion.div
-            // animate={{
-            //   backgroundColor:
-            //     backgroundColors[activeCard % backgroundColors.length],
-            // }}
-            className="h-[40rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10"
-            ref={ref}
+        <div
+          className="flex justify-between xl:gap-8 gap-4 items-center w-full"
+          style={{
+            backgroundImage: 'url("/chooseAIBg.png")',
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: "contain",
+          }}
+        >
+          <div
+            className="relative lg:w-auto w-full"
+            // onWheel={handleWheel}
           >
-            <div className="w-full px-8">
+            <div
+              // ref={scrollRef}
+              className="flex flex-col xl:gap-3 gap-1 "
+            >
               {services.map((service, index) => (
                 <motion.div
                   key={service.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  // initial="inactive"
+                  // animate={activeCard === index ? "active" : "inactive"}
+                  // variants={cardVariants}
+                  // className={`relative p-6 rounded-xl ${
+                  //   activeCard === index
+                  //     ? `bg-gradient-to-r ${
+                  //         gradients[index % gradients.length]
+                  //       }`
+                  //     : "bg-transparent"
+                  // }`}
+                  whileHover={{
+                    scale: 1.05,
+                    background: "linear-gradient(135deg, #A604F2, #763AF5)",
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="relative py-4 md:px-6 px-4 rounded-xl flex flex-col items-start min-[1400px]:gap-4 gap-2 w-full "
                 >
-                  {/* <ChooseAICard {...service} isActive={index === activeCard} /> */}
-
-                  <motion.div
-                    className={`relative p-6 rounded-xl transition-all duration-300 mb-6`}
-                    style={{ background: backgroundGradient }}
-                    // className={`relative p-6 rounded-xl transition-all duration-300 mb-6 ${
-                    //   activeCard
-                    //     ? "bg-purple-600 bg-opacity-90"
-                    //     : "bg-transparent"
-                    // }`}
-                    animate={{ scale: activeCard ? 1.05 : 1 }}
+                  {/* <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0"
+                    whileHover={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="p-2 rounded-full bg-white/10">
-                        <Image
-                          src={service.icon}
-                          alt="choose-icon"
-                          height={20}
-                          width={20}
-                          className="w-6 h-6 text-white"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <motion.h3
-                          className="text-xl font-semibold text-white"
-                          initial={{
-                            opacity: 0,
-                          }}
-                          animate={{
-                            opacity: activeCard === index ? 1 : 0.3,
-                          }}
-                        >
-                          {service.title}
-                        </motion.h3>
-                        <motion.p
-                          className="text-sm text-gray-300"
-                          initial={{
-                            opacity: 0,
-                          }}
-                          animate={{
-                            opacity: activeCard === index ? 1 : 0.3,
-                          }}
-                        >
-                          {service.description}
-                        </motion.p>
-                      </div>
+                  /> */}
+                  <div className="flex items-center md:gap-6 gap-3">
+                    <div className="xl:p-4 p-3 rounded-full bg-white flex-shrink-0">
+                      <Image
+                        src={service.icon}
+                        alt={`${service.title} icon`}
+                        height={20}
+                        width={20}
+                        className="w-6 h-6 text-white"
+                      />
                     </div>
-                  </motion.div>
+                    <h3 className="lg:text-2xl text-xl text-white font-[family-name:var(--font-satoshi)]">
+                      {service.title}
+                    </h3>
+                  </div>
+                  <div className="w-full">
+                    <p className="text-base text-white/90 max-w-2xl font-[family-name:var(--font-satoshi)]">
+                      {service.description}
+                    </p>
+                  </div>
                 </motion.div>
               ))}
             </div>
-            {/* <div
-              ref={scrollbarRef}
-              className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-60 bg-gray-700 rounded-full cursor-pointer"
-              onMouseMove={handleScroll}
-            >
+
+            {/* Custom Scrollbar */}
+            {/* <div className="absolute right-0 top-0 h-full w-1 bg-gray-700/30 rounded-full">
               <motion.div
-                className="w-3 h-6 bg-purple-600 rounded-full"
+                className="w-1 rounded-full bg-purple-600"
+                style={{
+                  height:
+                    activeCard === services.length - 1
+                      ? "100%"
+                      : scrollbarHeight,
+                }}
                 animate={{
-                  y: `${(activeIndex / (services.length - 1)) * 100}%`,
+                  y: `${scrollbarProgress}%`,
                 }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
               />
             </div> */}
-          </motion.div>
+          </div>
 
-          <div
-            ref={ref}
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-1/2 bg-gray-700 rounded-full cursor-pointer"
-            // onClick={handleScroll}
-            // onScroll={handleScroll}
+          {/* Static Image Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="relative lg:flex items-center justify-center hidden"
           >
-            <motion.div
-              className="w-3 h-3 bg-purple-600 rounded-full -translate-x-1"
-              animate={{
-                y: `${(activeCard / (services.length - 1)) * 100}%`,
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            <Image
+              src="/chooseAIImg.png"
+              height={600}
+              width={600}
+              alt="AI Robot Hand"
+              className="max-w-full max-h-full object-contain"
             />
-          </div>
-          <div className="relative">
-            <div className="flex items-center justify-center">
-              <Image
-                src="/chooseAIImg.png"
-                height={500}
-                width={400}
-                alt="AI Robot Hand"
-                className="max-w-full max-h-full object-contain"
-              />
-            </div>
-          </div>
+          </motion.div>
         </div>
 
         <div className="h-[1px] w-full bg-white/20 mt-3"></div>
       </div>
 
-      <div className="absolute -bottom-40 -right-48 bg-blur-gradient-purple md:w-[900px] md:h-[900px] w-[500px] h-[500px]" />
+      <div className="absolute bottom-0 -right-48 bg-blur-gradient-purple lg:w-[600px] lg:h-[800px] " />
     </div>
   );
 };

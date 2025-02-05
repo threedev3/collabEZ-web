@@ -256,253 +256,180 @@ const AIContactForm = () => {
   };
 
   return (
-    <div className="relative sm:px-10 px-5 sm:py-10 py-5 w-full">
-      <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-8 lg:gap-6 gap-6 items-start justify-center h-full">
+    <div
+      className="relative sm:px-10 px-5 sm:py-10 py-5 w-full"
+      id="contact-ai"
+    >
+      <div className="max-w-[93%] w-full mx-auto flex flex-col xl:gap-8 lg:gap-6 md:gap-6 gap-3 items-start justify-center h-full relative z-10">
         <div className="flex  min-[806px]:gap-6 gap-0 items-start justify-between w-full ">
-          <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-full min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[375px]:text-[32px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)] text-center mx-auto ">
+          <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-full min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[375px]:text-[28px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)] text-center mx-auto ">
             Get a Free AI Consultation
           </h3>
         </div>
-        <div className="bg-gradient-to-r from-[#854CFF10] via-contactFormBg to-contactFormBg w-full rounded-xl relative z-10 md:py-10 py-5 md:px-10 px-5">
-          <form
-            className="flex flex-col gap-4"
-            onSubmit={handleSubmit}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                e.preventDefault();
-              }
-            }}
-          >
-            <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
-              <div className="flex flex-col gap-2">
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Full Name"
-                  value={formData.fullName}
-                  onChange={handleInputChange}
-                  className="w-full font-[family-name:var(--font-satoshi)] py-3 px-6 rounded-lg bg-white/5 border-2 border-white/20 text-white placeholder-white/60 focus:outline-none"
-                />
-                {errors.fullName && (
-                  <span className="text-red-500 text-sm">
-                    {errors.fullName}
-                  </span>
-                )}
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full font-[family-name:var(--font-satoshi)] py-3 px-6 rounded-lg bg-white/5 border-2 border-white/20 text-white placeholder-white/60 focus:outline-none"
-                />
-                {errors.email && (
-                  <span className="text-red-500 text-sm">{errors.email}</span>
-                )}
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
-              <div className="flex flex-col gap-2">
-                <input
-                  type="text"
-                  name="company"
-                  placeholder="Company Name"
-                  value={formData.company}
-                  onChange={handleInputChange}
-                  className="w-full font-[family-name:var(--font-satoshi)] py-3 px-6 rounded-lg bg-white/5 border-2 border-white/20 text-white placeholder-white/60 focus:outline-none"
-                />
-                {errors.company && (
-                  <span className="text-red-500 text-sm">{errors.company}</span>
-                )}
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <Select
-                  options={industryOptions}
-                  value={formData.industry}
-                  onChange={handleSelectChange}
-                  placeholder="Industry"
-                  styles={customStyles}
-                  className="w-full"
-                />
-                {errors.industry && (
-                  <span className="text-red-500 text-sm">
-                    {errors.industry}
-                  </span>
-                )}
-              </div>
-            </div>
-            {/* <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
-              <div className="flex flex-col gap-2 w-full">
-                <PhoneInput
-                  defaultCountry="ae"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handlePhoneChange}
-                  placeholder="Phone number"
-                  className="w-full font-[family-name:var(--font-satoshi)] py-1.5 px-6 rounded-lg bg-white/5 border-2 border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-0 focus:ring-none"
-                />
-                {errors.phone && (
-                  <span className="text-red-500 text-sm">{errors.phone}</span>
-                )}
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <textarea
-                  name="projectDetails"
-                  placeholder="Tell Us About Your AI Needs"
-                  value={formData.projectDetails}
-                  onChange={handleInputChange}
-                  rows={8}
-                  className="w-full font-[family-name:var(--font-satoshi)] py-3 px-6 rounded-lg bg-white/5 border-2 border-white/20 text-white placeholder-white/60 focus:outline-none resize-none"
-                />
-              </div>
-            </div>
-            <div className="grid md:grid-cols-2 grid-cols-1 gap-4 ">
-              <div className="flex flex-col gap-3">
-                <label className="text-white/80">
-                  What AI Solutions Are You Interested In?
-                </label>
-                <div className="grid md:grid-cols-2 grid-cols-1 gap-3">
-                  <label className="flex items-center gap-2 text-white/60">
-                    <input
-                      type="checkbox"
-                      checked={formData.aiSolutions.includes(
-                        "AI-Powered Applications"
-                      )}
-                      onChange={() =>
-                        handleCheckboxChange("AI-Powered Applications")
-                      }
-                      className="w-4 h-4"
-                    />
-                    AI-Powered Applications
-                  </label>
-                  <label className="flex items-center gap-2 text-white/60">
-                    <input
-                      type="checkbox"
-                      checked={formData.aiSolutions.includes(
-                        "AI Chatbots & Virtual Assistants"
-                      )}
-                      onChange={() =>
-                        handleCheckboxChange("AI Chatbots & Virtual Assistants")
-                      }
-                      className="w-4 h-4"
-                    />
-                    AI Chatbots & Virtual Assistants
-                  </label>
-                  <label className="flex items-center gap-2 text-white/60">
-                    <input
-                      type="checkbox"
-                      checked={formData.aiSolutions.includes(
-                        "AI Calling Agents"
-                      )}
-                      onChange={() => handleCheckboxChange("AI Calling Agents")}
-                      className="w-4 h-4"
-                    />
-                    AI Calling Agents
-                  </label>
-                  <label className="flex items-center gap-2 text-white/60">
-                    <input
-                      type="checkbox"
-                      checked={formData.aiSolutions.includes("Other")}
-                      onChange={() => handleCheckboxChange("Other")}
-                      className="w-4 h-4"
-                    />
-                    Other (Specify)
-                  </label>
-                </div>
-                {errors.aiSolutions && (
-                  <span className="text-red-500 text-sm">
-                    {errors.aiSolutions}
-                  </span>
-                )}
-              </div>
-            </div> */}
-
-            <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
-              {/* Left column - Phone and Checkboxes */}
-              <div className="flex flex-col gap-4">
+        <div className="relative z-20 w-full ">
+          <div className="bg-gradient-to-r from-[#854CFF10] via-contactFormBg to-contactFormBg w-full rounded-xl  md:py-10 py-5 md:px-10 px-5">
+            <form
+              className="flex flex-col gap-4"
+              onSubmit={handleSubmit}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                }
+              }}
+            >
+              <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
                 <div className="flex flex-col gap-2">
-                  <PhoneInput
-                    defaultCountry="ae"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handlePhoneChange}
-                    placeholder="Phone number"
-                    className="w-full font-[family-name:var(--font-satoshi)] py-1.5 px-6 rounded-lg bg-white/5 border-2 border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-0 focus:ring-none"
+                  <input
+                    type="text"
+                    name="fullName"
+                    placeholder="Full Name"
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    className="w-full font-[family-name:var(--font-satoshi)] py-3 px-6 rounded-lg bg-white/5 border-2 border-white/20 text-white placeholder-white/60 focus:outline-none"
                   />
-                  {errors.phone && (
-                    <span className="text-red-500 text-sm">{errors.phone}</span>
+                  {errors.fullName && (
+                    <span className="text-red-500 text-sm">
+                      {errors.fullName}
+                    </span>
                   )}
                 </div>
 
-                {/* Checkbox section directly below phone */}
-                <div className="flex flex-col gap-3">
-                  <label className="text-white/80">
-                    What AI Solutions Are You Interested In?
-                  </label>
-                  <div className="grid lg:grid-cols-2 grid-cols-1 gap-3">
-                    {[
-                      "Chatbots",
-                      "Data Analysis",
-                      "Computer Vision",
-                      "Other (Specify)",
-                    ].map((solution) => (
-                      <label key={solution} className="flex items-center gap-2">
-                        <input
-                          type="checkbox"
-                          checked={formData.aiSolutions.includes(solution)}
-                          onChange={() => handleCheckboxChange(solution)}
-                          className="w-4 h-4"
-                        />
-                        {solution}
-                      </label>
-                    ))}
-                  </div>
-                  {formData.aiSolutions.includes("Other (Specify)") && (
-                    <input
-                      type="text"
-                      placeholder="Please specify"
-                      value={otherSolution}
-                      onChange={handleOtherSolutionChange}
-                      className="w-full font-[family-name:var(--font-satoshi)] py-3 px-6 rounded-lg bg-white/5 border-2 border-white/20 text-white"
-                    />
+                <div className="flex flex-col gap-2">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full font-[family-name:var(--font-satoshi)] py-3 px-6 rounded-lg bg-white/5 border-2 border-white/20 text-white placeholder-white/60 focus:outline-none"
+                  />
+                  {errors.email && (
+                    <span className="text-red-500 text-sm">{errors.email}</span>
                   )}
-                  {errors.aiSolutions && (
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
+                <div className="flex flex-col gap-2">
+                  <input
+                    type="text"
+                    name="company"
+                    placeholder="Company Name"
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    className="w-full font-[family-name:var(--font-satoshi)] py-3 px-6 rounded-lg bg-white/5 border-2 border-white/20 text-white placeholder-white/60 focus:outline-none"
+                  />
+                  {errors.company && (
                     <span className="text-red-500 text-sm">
-                      {errors.aiSolutions}
+                      {errors.company}
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <Select
+                    options={industryOptions}
+                    value={formData.industry}
+                    onChange={handleSelectChange}
+                    placeholder="Industry"
+                    styles={customStyles}
+                    className="w-full"
+                  />
+                  {errors.industry && (
+                    <span className="text-red-500 text-sm">
+                      {errors.industry}
                     </span>
                   )}
                 </div>
               </div>
 
-              {/* Right column - Textarea */}
-              <div className="flex flex-col gap-2">
-                <textarea
-                  name="projectDetails"
-                  placeholder="Tell Us About Your AI Needs"
-                  value={formData.projectDetails}
-                  onChange={handleInputChange}
-                  rows={6}
-                  className="w-full h-full font-[family-name:var(--font-satoshi)] py-3 px-6 rounded-lg bg-white/5 border-2 border-white/20 text-white placeholder-white/60 focus:outline-none resize-none"
-                />
-              </div>
-            </div>
+              <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
+                {/* Left column - Phone and Checkboxes */}
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-2">
+                    <PhoneInput
+                      defaultCountry="ae"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handlePhoneChange}
+                      placeholder="Phone number"
+                      className="w-full font-[family-name:var(--font-satoshi)] py-1.5 px-6 rounded-lg bg-white/5 border-2 border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-0 focus:ring-none"
+                    />
+                    {errors.phone && (
+                      <span className="text-red-500 text-sm">
+                        {errors.phone}
+                      </span>
+                    )}
+                  </div>
 
-            <button
-              type="submit"
-              className="bg-gradient-to-r from-[#763AF5] to-[#A604F2] w-full py-3 px-6 rounded-lg font-[family-name:var(--font-satoshi-bold)] md:text-lg text-base font-bold text-white"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Submitting..." : "Submit Now"}
-            </button>
-          </form>
+                  {/* Checkbox section directly below phone */}
+                  <div className="flex flex-col gap-3">
+                    <label className="text-white/80">
+                      What AI Solutions Are You Interested In?
+                    </label>
+                    <div className="grid lg:grid-cols-2 grid-cols-1 gap-3">
+                      {[
+                        "Chatbots",
+                        "Data Analysis",
+                        "Computer Vision",
+                        "Other (Specify)",
+                      ].map((solution) => (
+                        <label
+                          key={solution}
+                          className="flex items-center gap-2"
+                        >
+                          <input
+                            type="checkbox"
+                            checked={formData.aiSolutions.includes(solution)}
+                            onChange={() => handleCheckboxChange(solution)}
+                            className="w-4 h-4"
+                          />
+                          {solution}
+                        </label>
+                      ))}
+                    </div>
+                    {formData.aiSolutions.includes("Other (Specify)") && (
+                      <input
+                        type="text"
+                        placeholder="Please specify"
+                        value={otherSolution}
+                        onChange={handleOtherSolutionChange}
+                        className="w-full font-[family-name:var(--font-satoshi)] py-3 px-6 rounded-lg bg-white/5 border-2 border-white/20 text-white"
+                      />
+                    )}
+                    {errors.aiSolutions && (
+                      <span className="text-red-500 text-sm">
+                        {errors.aiSolutions}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Right column - Textarea */}
+                <div className="flex flex-col gap-2">
+                  <textarea
+                    name="projectDetails"
+                    placeholder="Tell Us About Your AI Needs"
+                    value={formData.projectDetails}
+                    onChange={handleInputChange}
+                    rows={6}
+                    className="w-full h-full font-[family-name:var(--font-satoshi)] py-3 px-6 rounded-lg bg-white/5 border-2 border-white/20 text-white placeholder-white/60 focus:outline-none resize-none"
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="bg-gradient-to-r from-[#763AF5] to-[#A604F2] w-full py-3 px-6 rounded-lg font-[family-name:var(--font-satoshi-bold)] md:text-lg text-base font-bold text-white"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Submitting..." : "Submit Now"}
+              </button>
+            </form>
+          </div>
         </div>
       </div>
+      {/* <div className="absolute -z-20 top-0 -left-48 bg-blur-gradient-purple lg:w-[600px] lg:h-[600px] " /> */}
     </div>
   );
 };

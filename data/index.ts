@@ -18,58 +18,69 @@ export const navItemsAI = [
 
 export const serviceItems = [
   {
-    title: "Custom Web Dev",
+    title: "AI Automation",
+    boxClass: "bg-gradient-to-t from-[#111] serviceBorder to-[#1a1a1a]",
     description:
       "Building fast, secure, and scalable websites tailored to your business needs, with a focus on performance and reliability.",
-    sideImg: "/skeleton1.png",
+    sideImg: "/serviceItem1.png",
     className:
-      "-mr-64 mt-16 w-[460px] h-[320px] rounded-3xl opacity-80 md:block hidden object-contain",
+      "xl:-mr-32 -mr-24 mt-16 xl:w-[460px] w-[400px] h-[320px] rounded-3xl opacity-80 md:block hidden object-contain",
     icon: "/service1.png",
   },
-  {
-    title: "UI/UX Design",
-    description:
-      "Creating intuitive, user-friendly interfaces that drive engagement and ensure a seamless experience across all devices.",
-    sideImg: "/skeleton4.png",
-    className:
-      "-mr-28 xl:mt-24 mt-40 w-[360px] h-[360px] bg-contain bg-no-repeat rounded-3xl opacity-80 md:block hidden object-contain",
-    icon: "/service2.png",
-  },
+
   {
     title: "Web Applications",
+    boxClass: "bg-gradient-to-b from-serviceGrad serviceBorder to-[#000000]",
     description:
       "Developing powerful, responsive web apps that offer enhanced functionality.",
-    sideImg: "/skeleton3.png",
+    sideImg: "/serviceItem2.png",
     className:
-      "-mr-64 mt-16 w-[460px] h-[320px] rounded-3xl opacity-80 md:block hidden object-contain",
+      "-mr-16 mt-0 min-[1400px]:w-[400px] xl:w-[280px] w-[240px] h-[350px] rounded-3xl opacity-80 md:block hidden object-contain",
     icon: "/service4.png",
   },
   {
     title: "iOS & Android Applications",
+    boxClass: "bg-gradient-to-b from-serviceGrad serviceBorder to-[#000000]",
+
     description:
       "Native and cross-platform mobile apps built for performance, user experience, and engagement.",
-    sideImg: "/skeleton2.png",
+    sideImg: "/serviceItem3.png",
     className:
-      "-mr-28 xl:mt-24 mt-40  w-[360px] h-[360px] bg-contain bg-no-repeat rounded-3xl opacity-80  md:block hidden object-contain",
+      "-mr-16 xl:mt-8 mt-8 xl:w-[360px] w-[250px] xl:h-[360px] h-[300px] bg-contain bg-no-repeat rounded-3xl opacity-80  md:block hidden object-contain",
     icon: "/service4.png",
   },
   {
     title: "DevOps & Integrations",
+    boxClass: "bg-gradient-to-t from-[#111] serviceBorder to-[#1a1a1a]",
+
     description:
       "Optimizing development workflows and integrating third-party services for seamless performance.",
-    sideImg: "/skeleton1.png",
+    sideImg: "/serviceItem4.png",
     className:
-      "-mr-64 mt-16 w-[460px] h-[320px] rounded-3xl opacity-80  md:block hidden object-contain",
+      "-mr-12 mt-8 min-[1400px]:w-[400px] xl:w-[270px] w-[230px] xl:h-[350px] h-[300px] rounded-3xl opacity-80  md:block hidden object-contain",
     icon: "/service5.png",
   },
   {
     title: "E-commerce Solutions",
+    boxClass: "bg-gradient-to-t from-[#111] serviceBorder to-[#1a1a1a]",
+
     description:
       "From custom stores to Shopify and WooCommerce, we build e-commerce platforms.",
-    sideImg: "/skeleton5.png",
+    sideImg: "/serviceItem5.png",
     className:
-      "-mr-64 mt-16 w-[460px] h-[320px] rounded-3xl opacity-80 md:block hidden object-contain",
+      "xl:-mr-16 -mr-10 mt-4 min-[1400px]:w-[420px] xl:w-[300px] w-[230px] h-[360px] rounded-3xl opacity-80 md:block hidden object-contain",
     icon: "/service6.png",
+  },
+  {
+    title: "UI/UX Design",
+    boxClass: "bg-gradient-to-b from-serviceGrad serviceBorder to-[#000000]",
+
+    description:
+      "Creating intuitive, user-friendly interfaces that drive engagement and ensure a seamless experience across all devices.",
+    sideImg: "/serviceItem6.png",
+    className:
+      "-mr-8 xl:mt-16 mt-16 min-[1400px]:w-[300px] xl:w-[250px] w-[220px] h-[360px] bg-contain bg-no-repeat rounded-3xl opacity-80 md:block hidden object-contain",
+    icon: "/service2.png",
   },
 ];
 

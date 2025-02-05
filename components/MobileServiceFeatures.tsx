@@ -28,8 +28,12 @@ const ServiceCard = ({ title, description, icon, index }: ServiceCardProps) => {
           <Image src={icon} alt={title} width={24} height={24} />
         </div>
         <div className="flex flex-col items-center">
-          <h3 className="text-white text-lg font-semibold mb-2">{title}</h3>
-          <p className="text-white/90 text-sm text-center">{description}</p>
+          <h3 className="text-white text-lg font-semibold mb-2 font-[family-name:var(--font-satoshi)]">
+            {title}
+          </h3>
+          <p className="text-white/90 text-sm text-center font-[family-name:var(--font-satoshi)]">
+            {description}
+          </p>
         </div>
       </div>
     </motion.div>
@@ -39,9 +43,9 @@ const ServiceCard = ({ title, description, icon, index }: ServiceCardProps) => {
 const MobileServiceFeatures = () => {
   return (
     <div className="relative px-5 py-10">
-      <div className="max-w-[93%] w-full mx-auto flex flex-col gap-8">
-        <div className="flex flex-col lg:gap-6 gap-0 items-center justify-between w-full relative z-20">
-          <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-full min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[375px]:text-[32px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)] text-center mx-auto">
+      <div className="max-w-[93%] w-full mx-auto flex flex-col gap-2">
+        <div className="flex flex-col lg:gap-6 gap-2 items-center justify-between w-full relative z-20">
+          <h3 className="bg-clip-text text-transparent bg-gradient-to-r from-heroColor via-white to-heroColor max-w-full min-[1525px]:text-[75px] min-[1420px]:text-[70px]  min-[1260px]:text-[60px] min-[1071px]:text-[50px] min-[976px]:text-[45px] min-[899px]:text-[40px] sm:text-[40px] text-[28px] min-[375px]:text-[28px] min-[414px]:text-[32px] leading-snug font-[family-name:var(--font-satoshi)] text-center mx-auto">
             AI Services at CollabEZ
           </h3>
 
@@ -56,7 +60,7 @@ const MobileServiceFeatures = () => {
           </div>
         </div>
 
-        <div className="relative w-full max-w-md mx-auto mb-2">
+        <div className="relative w-full max-w-md mx-auto">
           <Image
             src="/aiServiceImg.png"
             alt="AI Head"
